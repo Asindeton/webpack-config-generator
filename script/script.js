@@ -1,5 +1,6 @@
 import '../style/style.scss';
 import '../style/dark.scss';
-import BackgroundAnimator from './animations/backgroundAnimation';
+import CanvasBgAnimation from './animations/floatingCanvasBackground';
 
-const bgAnimator = new BackgroundAnimator(document.querySelector('.bg-animation'), 0.7, 2);
+const bgAnimator = new CanvasBgAnimation(document.querySelector('.animated-bg'), 0.5);
+bgAnimator.drawParticles();

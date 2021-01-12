@@ -55,7 +55,7 @@ html {
 
 html,
 body {
-  height: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -98,6 +98,8 @@ a {
 }
 
 .footer {
+  display: flex;
+  flex-direction: column;
   max-height: 60px;
 }
 
@@ -115,8 +117,6 @@ a {
   width: 100%;
   min-width: 310px;
   padding-right: 20px;
-  &__image {
-  }
 
   &__text {
     width: 100%;
@@ -146,9 +146,6 @@ a {
 
   &__item {
     display: inline-block;
-  }
-
-  &__link {
   }
 }
 
@@ -213,7 +210,7 @@ a {
 }
 
 .status {
-  margin-top: 25px;
+  width: 100%;
   z-index: 2;
   height: 4px;
   &__bar {
@@ -225,24 +222,12 @@ a {
   }
 }
 
-.bg-animation {
-  overflow: hidden;
-  z-index: -1;
+.animated-bg {
   position: absolute;
-  height: 100%;
   width: 100%;
-  opacity: 1;
-  &__el {
-    position: absolute;
-    background: rgb(29, 120, 193);
-    border-radius: 50%;
-    top: 0;
-    opacity: 1;
-    transition: 0.35s opacity linear;
-    &_fade {
-      opacity: 0;
-    }
-  }
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
 }
 
 .bubble {
@@ -254,8 +239,6 @@ a {
   transition: linear 2s, transform 0.2s;
 }
 
-.icon {
-}
 .rs-school {
   background: url(/assets/img/rs_school.png);
   background-size: contain;
@@ -316,6 +299,9 @@ a {
   padding: 20px;
   border-radius: 18px;
   background: none;
+  &:hover {
+    cursor: text;
+  }
   &::placeholder {
     opacity: 0.5;
   }
@@ -353,9 +339,6 @@ a {
     width: 100px;
     border-radius: 50%;
     animation: spin 2s linear infinite;
-  }
-
-  &__succes {
   }
 }
 
