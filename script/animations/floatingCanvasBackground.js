@@ -3,11 +3,11 @@ export default class floatingCanvasBackground {
     this.canvas = element;
     this.ctx = this.canvas.getContext('2d');
     this.setAmount(amountPerSec);
-    this.fps = 120;
+    this.fps = 60;
     this.frameLength = 1000 / this.fps;
-    this.opacityChangeAmount = 1.3;
-    this.speedMultiplier = 0.35;
-    this.lifetimeMultiplier = 1500;
+    this.opacityChangeAmount = 1.2;
+    this.speedMultiplier = 0.30;
+    this.lifetimeMultiplier = 2500;
     this.particles = [];
     this.resize();
     this.randomizeElProp();
@@ -50,7 +50,6 @@ export default class floatingCanvasBackground {
   }
 
   startGeneration() {
-    console.log(this);
     setTimeout(() => {
       this.randomizeElProp();
       this.createParticle();

@@ -4,8 +4,59 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <script
+      src="https://kit.fontawesome.com/5d7e776949.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
+    <div class="modal-wrapper hide">
+      <div class="modal-container">
+        <!-- <div class="modal">
+          <div class="modal__heading modal__heading_info">
+            <div class="icon modal__icon fas fa-question"></div>
+            <h3 class="modal__title text">[Info text]</h3>
+            <button class="modal__close fas fa-times"></button>
+          </div>
+          <p class="modal__text text">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus,
+            ea eligendi.
+          </p>
+          <div class="modal__controls">
+            <button class="input modal__button button_agree">Yes</button>
+            <button class="input modal__button button_disagree">No</button>
+          </div>
+        </div> -->
+        <!-- <div class="modal">
+          <div class="modal__heading modal__heading_succes">
+            <div class="icon modal__icon fas fa-check"></div>
+            <h3 class="modal__title text">[Info text]</h3>
+            <button class="modal__close fas fa-times"></button>
+          </div>
+          <p class="modal__text text">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus,
+            ea eligendi.
+          </p>
+          <div class="modal__controls">
+            <button class="input modal__button button_agree">Yes</button>
+          </div>
+        </div> -->
+        <div class="modal">
+          <div class="modal__heading modal__heading_error">
+            <div class="icon modal__icon fas fa-exclamation"></div>
+            <h3 class="modal__title text">[Info text]</h3>
+            <button class="modal__close fas fa-times"></button>
+          </div>
+          <p class="modal__text text">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus,
+            ea eligendi.
+          </p>
+          <div class="modal__controls">
+            <button class="input modal__button button_agree">Yes</button>
+          </div>
+        </div>
+      </div>
+    </div>
     <header class="header container">
       <div class="inside-wrapper">
         <a href="#top" class="logo">
@@ -20,28 +71,242 @@
         <nav class="navbar">
           <ul class="navbar__list">
             <li class="navbar__item">
-              <a href="" class="navbar__link text">Generate Config</a>
+              <a class="navbar__link text">Auto</a>
             </li>
             <li class="navbar__item">
-              <a href="" class="navbar__link text"
-                ><img src="" alt="" />Login</a
-              >
+              <a class="navbar__link navbar__link_active text">Editor</a>
             </li>
             <li class="navbar__item">
-              <a href="" class="navbar__link text"><img src="" alt="" />EN</a>
+              <a class="navbar__link text">
+                <img
+                  src="https://www.countryflags.io/us/flat/32.png"
+                  alt=""
+                  class="icon flag"
+                />
+                EN
+              </a>
             </li>
             <li class="navbar__item">
-              <a href="" class="navbar__link text">Menu</a>
+              <a class="navbar__link text"> Login </a>
             </li>
           </ul>
+          <div class="navbar__border"></div>
         </nav>
       </div>
     </header>
     <main class="main container">
       <div class="inside-wrapper inside-wrapper_centered">
+        <div class="editor block">
+          <h3 class="editor__title title">Editor</h3>
+          <div class="value-matrix text scrollable">
+            <div class="value-matrix__name">SASS</div>
+            <div class="delimiter"></div>
+            <div class="value-matrix__value">
+              <input
+                type="textfield"
+                class="textfield input value-matrix__input"
+                placeholder="index.js"
+              />
+            </div>
+            <div class="value-matrix__name">SASS</div>
+            <div class="delimiter"></div>
+            <div class="value-matrix__value">
+              <label class="checkbox">
+                <input type="checkbox" class="hide" />
+                <div class="checkbox__bar"></div>
+                <div class="checkbox__circle"></div>
+              </label>
+            </div>
+            <div class="value-matrix__name">SASS</div>
+            <div class="delimiter"></div>
+            <div class="value-matrix__value">
+              <input
+                type="textfield"
+                class="textfield input value-matrix__input"
+                placeholder="index.js"
+              />
+            </div>
+            <div class="value-matrix__name">SASS</div>
+            <div class="delimiter"></div>
+            <div class="value-matrix__value">
+              <label class="checkbox">
+                <input type="checkbox" class="hide" />
+                <div class="checkbox__bar"></div>
+                <div class="checkbox__circle"></div>
+              </label>
+            </div>
+            <div class="value-matrix__name">SASS</div>
+            <div class="delimiter"></div>
+            <div class="value-matrix__value">
+              <input
+                type="textfield"
+                class="textfield input value-matrix__input"
+                placeholder="index.js"
+              />
+            </div>
+            <div class="value-matrix__name">SASS</div>
+            <div class="delimiter"></div>
+            <div class="value-matrix__value">
+              <label class="checkbox">
+                <input type="checkbox" class="hide" />
+                <div class="checkbox__bar"></div>
+                <div class="checkbox__circle"></div>
+              </label>
+            </div>
+            <div class="value-matrix__name">SASS</div>
+            <div class="delimiter"></div>
+            <div class="value-matrix__value">
+              <input
+                type="textfield"
+                class="textfield input value-matrix__input"
+                placeholder="index.js"
+              />
+            </div>
+            <div class="value-matrix__name">SASS</div>
+            <div class="delimiter"></div>
+            <div class="value-matrix__value">
+              <label class="checkbox">
+                <input type="checkbox" class="hide" />
+                <div class="checkbox__bar"></div>
+                <div class="checkbox__circle"></div>
+              </label>
+            </div>
+            <div class="value-matrix__name">SASS</div>
+            <div class="delimiter"></div>
+            <div class="value-matrix__value">
+              <input
+                type="textfield"
+                class="textfield input value-matrix__input"
+                placeholder="index.js"
+              />
+            </div>
+            <div class="value-matrix__name">SASS</div>
+            <div class="delimiter"></div>
+            <div class="value-matrix__value">
+              <label class="checkbox">
+                <input type="checkbox" class="hide" />
+                <div class="checkbox__bar"></div>
+                <div class="checkbox__circle"></div>
+              </label>
+            </div>
+            <div class="value-matrix__name">SASS</div>
+            <div class="delimiter"></div>
+            <div class="value-matrix__value">
+              <input
+                type="textfield"
+                class="textfield input value-matrix__input"
+                placeholder="index.js"
+              />
+            </div>
+            <div class="value-matrix__name">SASS</div>
+            <div class="delimiter"></div>
+            <div class="value-matrix__value">
+              <label class="checkbox">
+                <input type="checkbox" class="hide" />
+                <div class="checkbox__bar"></div>
+                <div class="checkbox__circle"></div>
+              </label>
+            </div>
+            <div class="value-matrix__name">SASS</div>
+            <div class="delimiter"></div>
+            <div class="value-matrix__value">
+              <input
+                type="textfield"
+                class="textfield input value-matrix__input"
+                placeholder="index.js"
+              />
+            </div>
+            <div class="value-matrix__name">SASS</div>
+            <div class="delimiter"></div>
+            <div class="value-matrix__value">
+              <label class="checkbox">
+                <input type="checkbox" class="hide" />
+                <div class="checkbox__bar"></div>
+                <div class="checkbox__circle"></div>
+              </label>
+            </div>
+            <div class="value-matrix__name">SASS</div>
+            <div class="delimiter"></div>
+            <div class="value-matrix__value">
+              <input
+                type="textfield"
+                class="textfield input value-matrix__input"
+                placeholder="index.js"
+              />
+            </div>
+            <div class="value-matrix__name">SASS</div>
+            <div class="delimiter"></div>
+            <div class="value-matrix__value">
+              <label class="checkbox">
+                <input type="checkbox" class="hide" />
+                <div class="checkbox__bar"></div>
+                <div class="checkbox__circle"></div>
+              </label>
+            </div>
+            <div class="value-matrix__name">SASS</div>
+            <div class="delimiter"></div>
+            <div class="value-matrix__value">
+              <input
+                type="textfield"
+                class="textfield input value-matrix__input"
+                placeholder="index.js"
+              />
+            </div>
+            <div class="value-matrix__name">SASS</div>
+            <div class="delimiter"></div>
+            <div class="value-matrix__value">
+              <label class="checkbox">
+                <input type="checkbox" class="hide" />
+                <div class="checkbox__bar"></div>
+                <div class="checkbox__circle"></div>
+              </label>
+            </div>
+            <div class="value-matrix__name">SASS</div>
+            <div class="delimiter"></div>
+            <div class="value-matrix__value">
+              <input
+                type="textfield"
+                class="textfield input value-matrix__input"
+                placeholder="index.js"
+              />
+            </div>
+            <div class="value-matrix__name">SASS</div>
+            <div class="delimiter"></div>
+            <div class="value-matrix__value">
+              <label class="checkbox">
+                <input type="checkbox" class="hide" />
+                <div class="checkbox__bar"></div>
+                <div class="checkbox__circle"></div>
+              </label>
+            </div>
+            <div class="value-matrix__name">SASS</div>
+            <div class="delimiter"></div>
+            <div class="value-matrix__value">
+              <input
+                type="textfield"
+                class="textfield input value-matrix__input"
+                placeholder="index.js"
+              />
+            </div>
+            <div class="value-matrix__name">SASS</div>
+            <div class="delimiter"></div>
+            <div class="value-matrix__value">
+              <label class="checkbox">
+                <input type="checkbox" class="hide" />
+                <div class="checkbox__bar"></div>
+                <div class="checkbox__circle"></div>
+              </label>
+            </div>
+          </div>
+          <div class="editor__controls controls">
+            <button class="input button editor__generate button_agree">
+              Generate
+            </button>
+          </div>
+        </div>
         <div class="question block hide">
           <h3 class="question__title title">Question</h3>
-          <div class="question__text text">
+          <div class="question__text text scrollable">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, quae.
             Deserunt sequi sint repellendus molestias repudiandae itaque aliquid
             optio dolores a quas! Dolorum iure repellat eveniet cum laborum in
@@ -56,10 +321,9 @@
             <button class="input button button_disagree">No</button>
           </div>
         </div>
-        <div class="login block">
+        <div class="login block hide">
           <div class="waiter hide">
             <div class="waiter__loading"></div>
-            <div class="waiter__succes"></div>
           </div>
           <form class="login__form" autocomplete="off">
             <h3 class="title">Login</h3>
@@ -87,7 +351,6 @@
         <div class="sign-up block hide">
           <div class="waiter hide">
             <div class="waiter__loading"></div>
-            <div class="waiter__succes"></div>
           </div>
           <form class="sign-up__form" autocomplete="off">
             <h3 class="title">Sign Up</h3>

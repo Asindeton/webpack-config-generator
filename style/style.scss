@@ -85,15 +85,16 @@ a {
 }
 
 .header {
+  z-index: 3;
   position: sticky;
   top: 5px;
-  margin-top: 15px;
   padding: 10px;
   justify-content: space-between;
-  height: 70px;
+  height: 85px;
 }
 
 .main {
+  padding: 25px 0;
   justify-content: center;
 }
 
@@ -114,9 +115,7 @@ a {
 .logo {
   display: flex;
   align-items: center;
-  width: 100%;
-  min-width: 310px;
-  padding-right: 20px;
+  min-width: 270px;
 
   &__text {
     width: 100%;
@@ -132,7 +131,10 @@ a {
   display: flex;
   align-items: center;
   width: 100%;
+  max-width: 430px;
+  position: relative;
   &__list {
+    position: relative;
     font-size: 1.4em;
     margin-left: auto;
     list-style: none;
@@ -143,9 +145,18 @@ a {
     margin-right: 30px;
     width: 100%;
   }
+  &__link {
+    position: relative;
+    display: flex;
+    height: 25px;
+    align-items: center;
+  }
 
   &__item {
     display: inline-block;
+    &:hover {
+      cursor: pointer;
+    }
   }
 }
 
@@ -161,12 +172,7 @@ a {
   }
 
   &__text {
-    overflow: auto;
     margin-bottom: 20px;
-    &::-webkit-scrollbar {
-      width: 3px;
-      border-radius: 25%;
-    }
   }
 }
 
@@ -191,7 +197,7 @@ a {
   max-width: 220px;
   width: 100%;
   font-size: 1.2rem;
-  transition: 0.2s all ease-in-out;
+
   &:hover {
     transform: scale(1.02);
   }
@@ -204,6 +210,7 @@ a {
   background: none;
   border-radius: 20px;
   height: 50px;
+  transition: 0.2s all ease-in-out;
   &:hover {
     cursor: pointer;
   }
@@ -340,6 +347,191 @@ a {
     border-radius: 50%;
     animation: spin 2s linear infinite;
   }
+}
+
+.flag {
+  vertical-align: bottom;
+  width: 24px;
+  height: 24px;
+}
+
+.icon {
+  margin-right: 5px;
+}
+
+.scrollable {
+  overflow: auto;
+  &::-webkit-scrollbar {
+    width: 3px;
+    border-radius: 25%;
+  }
+}
+
+.modal-wrapper {
+  position: fixed;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal-container {
+  width: 100%;
+  max-width: 400px;
+}
+.modal {
+  border-radius: 5px;
+  overflow: hidden;
+  min-width: 320px;
+  padding-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  & > * {
+    padding: 0 15px;
+  }
+  &__heading {
+    margin-bottom: 10px;
+    box-shadow: 0px -5px 10px -10px black inset;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    min-height: 37px;
+  }
+
+  &__icon {
+    font-size: 17px;
+    height: 27px;
+    width: 27px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__title {
+    font-size: 1.2rem;
+  }
+
+  &__text {
+    font-size: 1rem;
+    margin-bottom: 5px;
+  }
+
+  &__controls {
+    display: flex;
+    align-self: flex-end;
+    & > *:not(:last-child) {
+      margin-right: 7px;
+    }
+  }
+
+  &__button {
+    outline: none;
+    background: none;
+    min-width: 70px;
+    height: 30px;
+    font-size: 1rem;
+  }
+
+  &__close {
+    margin-left: auto;
+    outline: none;
+    font-size: 1.2rem;
+    border: none;
+    background: none;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.editor {
+  min-width: 320px;
+  width: 100%;
+  max-width: 550px;
+  &__title {
+    text-align: center;
+    margin-bottom: 15px;
+  }
+
+  &__controls {
+    grid-template-columns: 1fr;
+  }
+
+  &__generate {
+    margin: 10px auto;
+  }
+}
+
+.value-matrix {
+  max-height: 400px;
+  display: grid;
+  padding-right: 5px;
+  grid-template-columns: minmax(140px, 1fr) 1px minmax(140px, 1fr);
+  align-items: center;
+  grid-auto-rows: auto;
+  &__name {
+  }
+
+  &__value {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__input {
+    height: 20px;
+    padding: 0px 20px;
+    width: 100px;
+  }
+}
+.delimiter {
+  text-align: center;
+  &:after {
+    content: ":";
+    display: block;
+  }
+}
+
+.checkbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  &__bar {
+    transition: 0.3s all ease;
+    width: 40px;
+    height: 10px;
+    border-radius: 10px;
+  }
+
+  &__circle {
+    transition: 0.3s all ease;
+    position: absolute;
+    left: 0px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+  }
+  & input:checked {
+    & ~ .checkbox__circle {
+      left: 20px;
+    }
+  }
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.navbar__border {
+  position: absolute;
+  top: 44px;
+  border-radius: 50px;
+  height: 3px;
+  width: 40px;
+  left: 0px;
+  transition: 0.5s all cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
 .hide {
