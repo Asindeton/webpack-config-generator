@@ -69,9 +69,9 @@ export default class questionBlock {
   sumbitEvent(value) {
     this.question.answer = value;
     if (this.question.sendingValue) {
-      // console.log({
-      //   [this.question.sendingValue]: value,
-      // });
+      console.log({
+        [this.question.sendingValue]: value,
+      });
     }
     this.statusBar.update();
     if (this.nextQuestion) this.nextQuestion();
