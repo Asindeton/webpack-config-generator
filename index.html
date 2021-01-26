@@ -41,7 +41,7 @@
             <button class="input modal__button button_agree">Yes</button>
           </div>
         </div> -->
-        <div class="modal">
+        <!-- <div class="modal">
           <div class="modal__heading modal__heading_error">
             <div class="icon modal__icon fas fa-exclamation"></div>
             <h3 class="modal__title text">[Info text]</h3>
@@ -54,7 +54,7 @@
           <div class="modal__controls">
             <button class="input modal__button button_agree">Yes</button>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
     <header class="header container">
@@ -70,11 +70,11 @@
         </a>
         <nav class="navbar">
           <ul class="navbar__list">
-            <li class="navbar__item">
+            <li class="navbar__item navbar__item_active">
               <a class="navbar__link text">Auto</a>
             </li>
             <li class="navbar__item">
-              <a class="navbar__link navbar__link_active text">Editor</a>
+              <a class="navbar__link text">Editor</a>
             </li>
             <li class="navbar__item">
               <a class="navbar__link text">
@@ -96,7 +96,7 @@
     </header>
     <main class="main container">
       <div class="inside-wrapper inside-wrapper_centered">
-        <div class="editor block">
+        <div class="editor hide block">
           <h3 class="editor__title title">Editor</h3>
           <div class="value-matrix text scrollable">
             <div class="value-matrix__name">SASS</div>
@@ -316,9 +316,35 @@
             laborum in nulla! Lorem ipsum dolor sit amet consectetur adipisicing
             elit.
           </div>
-          <div class="controls">
-            <button class="input button button_agree">Yes</button>
-            <button class="input button button_disagree">No</button>
+          <div class="controls question__controls"">
+            <button class="list__control previous fas fa-chevron-left"></button>
+            <button
+              class="list__control next fas fa-chevron-right"
+              disabled
+            ></button>
+            <input
+              type="textfield"
+              class="input textfield question__textfield"
+              name="input"
+              placeholder="value"
+              autocomplete="off"
+            />
+            <button
+              type="button"
+              class="input button button_agree"
+              name="title"
+              value="true"
+            >
+              Yes
+            </button>
+            <button
+              type="button"
+              class="input button button_disagree"
+              name="title"
+              value="false"
+            >
+              No
+            </button>
           </div>
         </div>
         <div class="login block hide">

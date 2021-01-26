@@ -1,15 +1,23 @@
 export default class MenuBorderAnimation {
-  constructor(element) {
-    this.element = element;
+  constructor() {
+    this.element = document.querySelector('.navbar__border');
+    this.linksContainer = document.querySelector('.navbar__list');
+    this.activeLink = this.linksContainer.querySelector('.navbar__item_active');
+    this.handleEvents();
+    this.setPosition(this.activeLink);
   }
 
-  setLinksContainer(element) {
-    this.linksContainer = element;
-  }
-
-  setPosition(element = this.linksContainer.querySelector('.navbar__link_active').closest('.navbar__item')) {
+  setPosition(element) {
     this.element.style.left = `${element.offsetLeft}px`;
     this.element.style.width = `${element.offsetWidth}px`;
+  }
+
+  setNewActive(element) {
+    if (element.classList.contains('navbar__item')) {
+      this.activeLink.classList.remove('navbar__item_active');
+      this.activeLink = element;
+      this.activeLink.classList.add('navbar__item_active');
+    }
   }
 
   handleEvents() {
@@ -19,10 +27,10 @@ export default class MenuBorderAnimation {
       }
     });
     this.linksContainer.addEventListener('mouseleave', () => {
-      this.setPosition();
+      this.setPosition(this.activeLink);
     });
     window.addEventListener('resize', () => {
-      this.setPosition();
+      this.setPosition(this.activeLink);
     });
   }
 }

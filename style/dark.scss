@@ -53,6 +53,16 @@ body {
   color: $textcol;
 }
 
+.input {
+  color: rgba($color: $textcol, $alpha: 0.6);
+  box-shadow: $btnswpos rgba($color: $textcol, $alpha: 0.3);
+  border: 2px solid rgba($color: $textcol, $alpha: 0.4);
+  &:focus {
+    border: 2px solid rgba($color: $succes, $alpha: 0.8);
+    box-shadow: $btnswpos rgba($color: $succes, $alpha: 0.8);
+  }
+}
+
 .button {
   &_agree {
     &:hover {
@@ -70,17 +80,6 @@ body {
     }
   }
 }
-
-.input {
-  color: rgba($color: $textcol, $alpha: 0.6);
-  box-shadow: $btnswpos rgba($color: $textcol, $alpha: 0.3);
-  border: 2px solid rgba($color: $textcol, $alpha: 0.4);
-  &:focus {
-    border: 2px solid rgba($color: $succes, $alpha: 0.8);
-    box-shadow: $btnswpos rgba($color: $succes, $alpha: 0.8);
-  }
-}
-
 .status {
   background: rgb(41, 60, 69);
 }
