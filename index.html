@@ -4,8 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <script
+      src="https://kit.fontawesome.com/5d7e776949.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
+    <div class="modal-wrapper hide">
+      <div class="modal-container">
+      </div>
+    </div>
     <header class="header container">
       <div class="inside-wrapper">
         <a href="#top" class="logo">
@@ -19,29 +27,45 @@
         </a>
         <nav class="navbar">
           <ul class="navbar__list">
-            <li class="navbar__item">
-              <a href="" class="navbar__link text">Generate Config</a>
+            <li class="navbar__item navbar__item_active">
+              <a class="navbar__link text">Auto</a>
             </li>
             <li class="navbar__item">
-              <a href="" class="navbar__link text"
-                ><img src="" alt="" />Login</a
-              >
+              <a class="navbar__link text">Editor</a>
             </li>
             <li class="navbar__item">
-              <a href="" class="navbar__link text"><img src="" alt="" />EN</a>
+              <a class="navbar__link text">
+                <img
+                  src="https://www.countryflags.io/us/flat/32.png"
+                  alt=""
+                  class="icon flag"
+                />
+                <p class="text">EN</p>
+              </a>
             </li>
             <li class="navbar__item">
-              <a href="" class="navbar__link text">Menu</a>
+              <a class="navbar__link text"> Login </a>
             </li>
           </ul>
+          <div class="navbar__border"></div>
         </nav>
       </div>
     </header>
     <main class="main container">
       <div class="inside-wrapper inside-wrapper_centered">
+        <div class="editor hide block">
+          <h3 class="editor__title title">Editor</h3>
+          <div class="value-matrix text scrollable">
+          </div>
+          <div class="editor__controls controls">
+            <button class="input button editor__generate button_agree">
+              Generate
+            </button>
+          </div>
+        </div>
         <div class="question block hide">
           <h3 class="question__title title">Question</h3>
-          <div class="question__text text">
+          <div class="question__text text scrollable">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, quae.
             Deserunt sequi sint repellendus molestias repudiandae itaque aliquid
             optio dolores a quas! Dolorum iure repellat eveniet cum laborum in
@@ -51,15 +75,40 @@
             laborum in nulla! Lorem ipsum dolor sit amet consectetur adipisicing
             elit.
           </div>
-          <div class="controls">
-            <button class="input button button_agree">Yes</button>
-            <button class="input button button_disagree">No</button>
+          <div class="controls question__controls"">
+            <button class="list__control previous fas fa-chevron-left"></button>
+            <button
+              class="list__control next fas fa-chevron-right"
+              disabled
+            ></button>
+            <input
+              type="textfield"
+              class="input textfield question__textfield"
+              name="input"
+              placeholder="value"
+              autocomplete="off"
+            />
+            <button
+              type="button"
+              class="input button button_agree"
+              name="title"
+              value="true"
+            >
+              Yes
+            </button>
+            <button
+              type="button"
+              class="input button button_disagree"
+              name="title"
+              value="false"
+            >
+              No
+            </button>
           </div>
         </div>
-        <div class="login block">
+        <div class="login block hide">
           <div class="waiter hide">
             <div class="waiter__loading"></div>
-            <div class="waiter__succes"></div>
           </div>
           <form class="login__form" autocomplete="off">
             <h3 class="title">Login</h3>
@@ -68,12 +117,14 @@
               class="input textfield"
               name="login"
               placeholder="Login"
+              autocomplete="off"
             />
             <input
               type="password"
               class="input textfield"
               name="password"
               placeholder="Password"
+              autocomplete="off"
             />
             <p class="text incorrect">Incorrect password</p>
             <button class="input button button_agree" type="submit">
@@ -87,7 +138,6 @@
         <div class="sign-up block hide">
           <div class="waiter hide">
             <div class="waiter__loading"></div>
-            <div class="waiter__succes"></div>
           </div>
           <form class="sign-up__form" autocomplete="off">
             <h3 class="title">Sign Up</h3>
@@ -123,11 +173,11 @@
         </div>
       </div>
     </main>
-    <div class="bg-animation"></div>
-    <div class="status">
-      <div class="status__bar"></div>
-    </div>
+    <canvas class="animated-bg" width="800" height="800"></canvas>
     <footer class="footer container">
+      <div class="status">
+        <div class="status__bar"></div>
+      </div>
       <div class="inside-wrapper">
         <div class="links">
           <a href="https://rs.school/">
