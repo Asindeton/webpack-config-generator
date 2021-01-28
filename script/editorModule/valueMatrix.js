@@ -67,8 +67,6 @@ export default class ValueMatrix {
     const nameEl = document.createElement('div');
     nameEl.classList.add('value-matrix__name');
     nameEl.textContent = question.sendingValue[0].toUpperCase() + question.sendingValue.slice(1);
-    const delimiter = document.createElement('div');
-    delimiter.classList.add('delimiter');
     const valueEl = document.createElement('div');
     valueEl.classList.add('value-matrix__value');
     let input = null;
@@ -77,7 +75,7 @@ export default class ValueMatrix {
     } else {
       input = createCustomCheckbox(question.sendingValue, valueEl);
     }
-    wrapper.append(nameEl, delimiter, valueEl);
+    wrapper.append(nameEl, valueEl);
     this.element.append(wrapper);
     if (parentInput) {
       this.setParentItem(wrapper, parentInput);

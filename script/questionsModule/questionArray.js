@@ -62,13 +62,11 @@ const questionArray = [
   //   ],
   // },
   {
-    title: 'HTMLWebpackPlugin',
     sendingValue: 'htmlWebpackPlugin',
     requireInput: false,
     answer: null,
     child: [
       {
-        title: 'Имя HTML Файла',
         sendingValue: 'htmlTeamplate',
         requireInput: true,
         placeholder: 'index.html',
@@ -109,14 +107,12 @@ const questionArray = [
   },
   {
     title: 'DevServer',
-    text: 'Вы хотите иметь возможность видеть изменения в реальном времени, использовать встроенный сервер разработчика?',
     requireInput: false,
     sendingValue: 'devServer',
     answer: null,
     child: [
       {
         title: 'DevServer port',
-        text: 'Введите порт сервера разработчика',
         requireInput: true,
         sendingValue: 'devServerPort',
         placeholder: '4200',

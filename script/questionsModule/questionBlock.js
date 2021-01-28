@@ -37,8 +37,8 @@ export default class questionBlock {
   }
 
   updateLang() {
-    this.title.textContent = this.question.title
-      || dictionary[dictionary.lang].title[this.question.sendingValue];
+    this.title.textContent = this.question.title || (this.question.sendingValue[0].toUpperCase()
+      + this.question.sendingValue.slice(1));
     this.text.textContent = dictionary[dictionary.lang][this.question.sendingValue];
     this.rejectButton.textContent = dictionary[dictionary.lang].noButton;
     this.acceptButton.textContent = dictionary[dictionary.lang].yesButton;
@@ -87,7 +87,7 @@ export default class questionBlock {
     let { value } = input;
     if (value === '') {
       const scopeSaver = this;
-      const modal = new Modal('error', dictionary[dictionary.lang].emptyInput, dictionary[dictionary.lang].emptyInput.text, [
+      const modal = new Modal('error', dictionary[dictionary.lang].emptyInput, dictionary[dictionary.lang].emptyInputText, [
         {
           text: dictionary[dictionary.lang].emptyInputYes,
           event() {

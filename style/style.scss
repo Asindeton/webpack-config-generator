@@ -605,6 +605,12 @@ a {
   .navbar__list {
     margin-right: 0px;
   }
+  .logo {
+    min-width: auto;
+  }
+  .logo__text {
+    display: none;
+  }
 
   .header {
     padding: 10px 10px 10px 0;
