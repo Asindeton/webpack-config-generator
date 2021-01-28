@@ -1,9 +1,6 @@
-import questionArray from './questionArray';
-import QuestionBlock from './questionBlock';
-
 export default class QuestionCallStack {
-  constructor(questionBlock = new QuestionBlock(),
-    questions = questionArray, entryQuestion, afterQuestion, isCalledFromNext) {
+  constructor(questionBlock,
+    questions, entryQuestion, afterQuestion, isCalledFromNext) {
     this.questionArray = questions;
     this.currIndex = 0;
     this.questionBlock = questionBlock;

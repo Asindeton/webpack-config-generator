@@ -1,6 +1,8 @@
 import deleteEventListener from '../util/deleteEventListener';
 import Modal from '../components/Modal';
 import StatusBar from '../components/statusBar';
+import Editor from '../editorModule/editor';
+import dictionary from '../dictionary';
 
 export default class questionBlock {
   constructor() {
@@ -13,10 +15,12 @@ export default class questionBlock {
     this.previousButton = this.wrapper.querySelector('.previous');
     this.nextButton = this.wrapper.querySelector('.next');
     this.statusBar = new StatusBar();
+    this.editor = new Editor();
   }
 
   show() {
     this.wrapper.classList.remove('hide');
+    this.statusBar.update();
     this.statusBar.show();
   }
 
@@ -32,18 +36,23 @@ export default class questionBlock {
     this.previousButton = deleteEventListener(this.previousButton);
   }
 
+  updateLang() {
+    this.title.textContent = this.question.title
+      || dictionary[dictionary.lang].title[this.question.sendingValue];
+    this.text.textContent = dictionary[dictionary.lang][this.question.sendingValue];
+    this.rejectButton.textContent = dictionary[dictionary.lang].noButton;
+    this.acceptButton.textContent = dictionary[dictionary.lang].yesButton;
+    if (this.question.requireInput) {
+      this.acceptButton.textContent = dictionary[dictionary.lang].submitButton;
+      this.rejectButton.textContent = dictionary[dictionary.lang].skipButton;
+      this.input.placeholder = this.question.placeholder;
+    }
+  }
+
   createQuestion(question, previousQuestionAnswer, nextQuestion, previousQuestion) {
     this.clearPreviousQuestionEvents();
     this.question = question;
-    this.title.textContent = question.title;
-    this.text.textContent = question.text;
-    this.rejectButton.textContent = 'No';
-    this.acceptButton.textContent = 'Yes';
-    if (question.requireInput) {
-      this.acceptButton.textContent = 'Submit';
-      this.rejectButton.textContent = 'Skip';
-      this.input.placeholder = question.placeholder;
-    }
+    this.updateLang();
     this.nextQuestion = nextQuestion;
     this.previousQuestion = previousQuestion;
     if (question.requireInput) this.input.classList.remove('hide');
@@ -68,11 +77,7 @@ export default class questionBlock {
 
   sumbitEvent(value) {
     this.question.answer = value;
-    if (this.question.sendingValue) {
-      console.log({
-        [this.question.sendingValue]: value,
-      });
-    }
+    this.editor.valueMatrix.setValue(this.question.sendingValue, value, this.question.requireInput);
     this.statusBar.update();
     if (this.nextQuestion) this.nextQuestion();
   }
@@ -82,9 +87,9 @@ export default class questionBlock {
     let { value } = input;
     if (value === '') {
       const scopeSaver = this;
-      const modal = new Modal('error', 'Empty Input', 'You are trying to send empty input, we will change it with value from placeholder', [
+      const modal = new Modal('error', dictionary[dictionary.lang].emptyInput, dictionary[dictionary.lang].emptyInput.text, [
         {
-          text: 'Ok, change it',
+          text: dictionary[dictionary.lang].emptyInputYes,
           event() {
             value = input.placeholder;
             scopeSaver.sumbitEvent(value);
@@ -92,7 +97,7 @@ export default class questionBlock {
           succesButton: true,
         },
         {
-          text: 'No',
+          text: dictionary[dictionary.lang].emptyInputNo,
         },
       ]);
       modal.showModal();
@@ -104,16 +109,16 @@ export default class questionBlock {
   checkIsAnswered(isAccept, requireInput, input, name, answer, buttonValue) {
     if (answer !== null && answer !== buttonValue) {
       const scopeSaver = this;
-      const modal = new Modal('info', 'Overwriting', 'You are trying to overwrite existing answer, this can change question tree, are you really want to continue?', [
+      const modal = new Modal('info', dictionary[dictionary.lang].overwriting, dictionary[dictionary.lang].overwritingText, [
         {
-          text: 'Yes',
+          text: dictionary[dictionary.lang].overwritingYes,
           event() {
             scopeSaver.checkIsInput(isAccept, requireInput, input, name, answer, buttonValue);
           },
           succesButton: true,
         },
         {
-          text: 'No',
+          text: dictionary[dictionary.lang].overwritingNo,
         },
       ]);
       modal.showModal();

@@ -172,6 +172,17 @@ body {
       background: $accent;
     }
   }
+
+  & input:disabled {
+    & ~ .checkbox__bar {
+      background: $seccol;
+    }
+
+    & ~ .checkbox__circle {
+      border: 2px solid rgba($color: $textcol, $alpha: 0.4);
+      background: $maincol;
+    }
+  }
 }
 
 .value-matrix__input {

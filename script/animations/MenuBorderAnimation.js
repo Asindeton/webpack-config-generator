@@ -17,6 +17,7 @@ export default class MenuBorderAnimation {
       this.activeLink.classList.remove('navbar__item_active');
       this.activeLink = element;
       this.activeLink.classList.add('navbar__item_active');
+      this.linksContainer.dispatchEvent(new Event('mouseleave'));
     }
   }
 

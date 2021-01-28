@@ -63,14 +63,12 @@ const questionArray = [
   // },
   {
     title: 'HTMLWebpackPlugin',
-    text: 'Ваше приложение использует подготовленную заранее верстку(html файл)?',
     sendingValue: 'htmlWebpackPlugin',
     requireInput: false,
     answer: null,
     child: [
       {
         title: 'Имя HTML Файла',
-        text: 'Ваше приложение использует подготовленную заранее верстку(html файл)?',
         sendingValue: 'htmlTeamplate',
         requireInput: true,
         placeholder: 'index.html',
@@ -79,22 +77,18 @@ const questionArray = [
     ],
   },
   {
-    title: 'Препроцессоры',
-    text: 'Собираетесь ли вы использовать препроцессоры при создании приложения?',
+    sendingValue: 'preprocessors',
     requireInput: false,
-    sendingValue: 'preproccesors',
     answer: null,
     child: [
       {
         title: 'SASS/SCSS',
-        text: 'Вы будете использовать SASS/SCSS?',
         sendingValue: 'sass',
         requireInput: false,
         answer: null,
       },
       {
         title: 'LESS',
-        text: 'Вы будете использовать LESS?',
         sendingValue: 'less',
         requireInput: false,
         answer: null,
@@ -103,14 +97,12 @@ const questionArray = [
   },
   {
     title: 'TypeScript',
-    text: 'Ваше приложение использует Typescript?',
     sendingValue: 'typescript',
     requireInput: false,
     answer: null,
   },
   {
     title: 'React',
-    text: 'Ваше приложение использует React',
     sendingValue: 'react',
     requireInput: false,
     answer: null,

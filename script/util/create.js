@@ -27,7 +27,7 @@ export default function createHtmlElement(el, classNames, child, parent, ...data
       if (attrValue === '') {
         element.setAttribute(attrName, '');
       }
-      if (attrName.match(/value|id|placeholder|cols|rows|autocorrect|spellcheck|src|alt|title/)) {
+      if (attrName.match(/name|type|value|id|placeholder|cols|rows|autocorrect|spellcheck|src|alt|title/)) {
         element.setAttribute(attrName, attrValue);
       } else {
         element.dataset[attrName] = attrValue;

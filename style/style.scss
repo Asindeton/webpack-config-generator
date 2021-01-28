@@ -485,12 +485,23 @@ a {
 
 .value-matrix {
   max-height: 400px;
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   padding-right: 5px;
-  grid-template-columns: minmax(140px, 1fr) 1px minmax(140px, 1fr);
-  align-items: center;
-  grid-auto-rows: auto;
+  align-items: flex-end;
   &__name {
+    width: 50%;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    &_inactive {
+      opacity: 0.3;
+    }
   }
 
   &__value {
@@ -500,13 +511,19 @@ a {
 
   &__input {
     height: 20px;
-    padding: 0px 20px;
-    width: 100px;
+    padding: 0px 10px;
+    min-width: 100px;
+    max-width: 300px;
+    &:disabled {
+      box-shadow: none;
+      background: none;
+    }
   }
 }
 
 .delimiter {
   text-align: center;
+  margin-right: auto;
   &:after {
     content: ":";
     display: block;
@@ -536,6 +553,11 @@ a {
   & input:checked {
     & ~ .checkbox__circle {
       left: 20px;
+    }
+  }
+  & input:disabled {
+    & ~ .checkbox__circle {
+      left: 0px;
     }
   }
   &:hover {
