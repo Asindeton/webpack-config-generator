@@ -1,4 +1,6 @@
 import dictionary from '../dictionary';
+import axios from 'axios';
+import { login } from './Auth';
 
 export default class Login {
   constructor() {
@@ -11,9 +13,26 @@ export default class Login {
   updateLang() {
     this.element.querySelector('.title').textContent = dictionary[dictionary.lang].login;
     this.element.querySelector('.button').textContent = dictionary[dictionary.lang].loginButton;
+    this.element.querySelector('.button_agree').addEventListener('click', this.submitForm.bind(this));
     this.element.querySelectorAll('.textfield')[0].placeholder = dictionary[dictionary.lang].loginProfileName;
     this.element.querySelectorAll('.textfield')[1].placeholder = dictionary[dictionary.lang].loginPassword;
     this.element.querySelector('.login_sign-up-link').textContent = dictionary[dictionary.lang].loginToSignUp;
+  }
+
+  async submitForm(event) {
+    event.preventDefault();
+    const data = {
+      email: this.element.querySelectorAll('.textfield')[0].value,
+      password: this.element.querySelectorAll('.textfield')[1].value
+    };
+    const response = await axios({
+      method: 'post',
+      // url: 'http://localhost:3000/api/auth/login',
+      url: 'https://webpack-generator-be.herokuapp.com/api/auth/login',
+      data
+    });
+    
+    login(response.data.token);
   }
 
   hide() {
