@@ -62,6 +62,13 @@ const questionArray = [
   //   ],
   // },
   {
+    title: 'Entry Points',
+    sendingValue: 'entryPoints',
+    requireInput: true,
+    placeholder: './src/index.js/',
+    answer: null,
+  },
+  {
     sendingValue: 'htmlWebpackPlugin',
     requireInput: false,
     answer: null,
@@ -118,7 +125,105 @@ const questionArray = [
         placeholder: '4200',
         answer: null,
       },
+      {
+        title: 'Hot Module Replacement',
+        requireInput: false,
+        sendingValue: 'hotModuleReplacement',
+        answer: null,
+      },
     ],
+  },
+  {
+    title: 'Optimization',
+    requireInput: false,
+    sendingValue: 'optimization',
+    answer: null,
+    child: [
+      {
+        title: 'External libraries',
+        requireInput: false,
+        sendingValue: 'libraries',
+        answer: null,
+      },
+      {
+        title: 'Production',
+        requireInput: false,
+        sendingValue: 'production',
+        answer: null,
+        child: [
+          {
+            title: 'Minification',
+            requireInput: false,
+            sendingValue: 'minification',
+            answer: null,
+            child: [
+              {
+                title: 'Minification HTML',
+                requireInput: false,
+                sendingValue: 'minificationHTML',
+                answer: null,
+              },
+              {
+                title: 'Minification CSS',
+                requireInput: false,
+                sendingValue: 'minificationCSS',
+                answer: null,
+              },
+              {
+                title: 'Minification JS',
+                requireInput: false,
+                sendingValue: 'minificationJS',
+                answer: null,
+              },
+            ],
+          },
+          {
+            title: 'Source Mapping',
+            requireInput: false,
+            sendingValue: 'sourceMapping',
+            answer: null,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: 'Bundle Analysis',
+    sendingValue: 'bundleAnalysis',
+    requireInput: false,
+    answer: null,
+    child: [
+      {
+        title: 'webpack-char',
+        sendingValue: 'webpackChar',
+        requireInput: false,
+        answer: null,
+      },
+      {
+        title: 'webpack-visualizer',
+        sendingValue: 'webpackVisualizer',
+        requireInput: false,
+        answer: null,
+      },
+      {
+        title: 'webpack-bundle-analyze',
+        sendingValue: 'webpackBundleAnalyze',
+        requireInput: false,
+        answer: null,
+      },
+      {
+        title: 'bundle-stats',
+        sendingValue: 'bundleStats',
+        requireInput: false,
+        answer: null,
+      },
+    ],
+  },
+  {
+    title: 'Auto npm install',
+    sendingValue: 'npmInstallWebpackPlugin',
+    requireInput: false,
+    answer: null,
   },
 ];
 
