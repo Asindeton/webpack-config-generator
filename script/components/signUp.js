@@ -8,12 +8,12 @@ export default class SignUp {
     this.message = this.element.querySelector('.incorrect');
     this.waiter = this.element.querySelector('.waiter');
     this.updateLang();
+    this.element.querySelector('.button_agree').addEventListener('click', this.submitForm.bind(this));
   }
 
   updateLang() {
     this.element.querySelector('.title').textContent = dictionary[dictionary.lang].signUp;
     this.element.querySelector('.button').textContent = dictionary[dictionary.lang].signUpButton;
-    this.element.querySelector('.button_agree').addEventListener('click', this.submitForm.bind(this));
     this.element.querySelectorAll('.textfield')[0].placeholder = dictionary[dictionary.lang].signUpProfileName;
     this.element.querySelectorAll('.textfield')[1].placeholder = dictionary[dictionary.lang].signUpEmail;
     this.element.querySelectorAll('.textfield')[2].placeholder = dictionary[dictionary.lang].signUpPassword;
@@ -22,17 +22,20 @@ export default class SignUp {
 
   async submitForm(event) {
     event.preventDefault();
+    console.log(event);
+    console.log(event.target);
     const data = {
       email: this.element.querySelectorAll('.textfield')[1].value,
-      password: this.element.querySelectorAll('.textfield')[2].value
+      password: this.element.querySelectorAll('.textfield')[2].value,
+      name: this.element.querySelectorAll('.textfield')[0].value
     };
     const response = await axios({
       method: 'post',
-      // url: 'http://localhost:3000/api/auth/register',
-      url: 'https://webpack-generator-be.herokuapp.com/api/auth/register',
+      url: 'http://localhost:3000/api/auth/register',
+      //url: 'https://webpack-generator-be.herokuapp.com/api/auth/register',
       data
     });
-    login(response.data.token);
+    login(response.data.token, response.data.userId, response.data.name);
   }
 
   hide() {

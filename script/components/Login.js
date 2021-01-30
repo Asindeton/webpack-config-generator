@@ -8,12 +8,12 @@ export default class Login {
     this.message = this.element.querySelector('.incorrect');
     this.waiter = this.element.querySelector('.waiter');
     this.updateLang();
+    this.element.querySelector('.button_agree').addEventListener('click', this.submitForm.bind(this));
   }
 
   updateLang() {
     this.element.querySelector('.title').textContent = dictionary[dictionary.lang].login;
     this.element.querySelector('.button').textContent = dictionary[dictionary.lang].loginButton;
-    this.element.querySelector('.button_agree').addEventListener('click', this.submitForm.bind(this));
     this.element.querySelectorAll('.textfield')[0].placeholder = dictionary[dictionary.lang].loginProfileName;
     this.element.querySelectorAll('.textfield')[1].placeholder = dictionary[dictionary.lang].loginPassword;
     this.element.querySelector('.login_sign-up-link').textContent = dictionary[dictionary.lang].loginToSignUp;
@@ -21,6 +21,8 @@ export default class Login {
 
   async submitForm(event) {
     event.preventDefault();
+    console.log(event);
+    console.log(event.target);
     const data = {
       email: this.element.querySelectorAll('.textfield')[0].value,
       password: this.element.querySelectorAll('.textfield')[1].value
@@ -32,7 +34,7 @@ export default class Login {
       data
     });
     
-    login(response.data.token);
+    login(response.data.token, response.data.userId, response.data.name);
   }
 
   hide() {
