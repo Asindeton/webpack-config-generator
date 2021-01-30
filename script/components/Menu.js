@@ -1,13 +1,15 @@
 import MenuBorderAnimation from '../animations/MenuBorderAnimation';
-import QuestionCallStack from '../questionsModule/questionCallStack';
+import QuestionCallStack from '../questionsModule/QuestionCallStack';
 import unsetQuestionsDeeply from '../util/unsetQuestionsDeeply';
 import questionArray from '../questionsModule/questionArray';
-import QuestionBlock from '../questionsModule/questionBlock';
+import QuestionBlock from '../questionsModule/QuestionBlock';
+import { userName } from './Auth';
 import Login from './Login';
-import SignUp from './signUp';
+import SignUp from './SignUp';
 import Modal from './Modal';
-import Editor from '../editorModule/editor';
+import Editor from '../editorModule/Editor';
 import dictionary from '../dictionary';
+import Profile from './Profile';
 
 export default class Menu {
   constructor() {
@@ -32,7 +34,7 @@ export default class Menu {
   updateLang() {
     this.linksArray[0].querySelector('.text').textContent = dictionary[dictionary.lang].auto;
     this.linksArray[1].querySelector('.text').textContent = dictionary[dictionary.lang].editor;
-    this.linksArray[3].querySelector('.text').textContent = dictionary[dictionary.lang].login;
+    if (!userName()) this.linksArray[3].querySelector('.text').textContent = dictionary[dictionary.lang].login;
   }
 
   changeLang() {
@@ -41,6 +43,7 @@ export default class Menu {
     this.questionBlock.updateLang();
     this.signUp.updateLang();
     this.editor.updateLang();
+    this.profile.updateLang();
   }
 
   setLangIcon() {
@@ -55,6 +58,7 @@ export default class Menu {
 
   initiallize() {
     const scopeSaver = this;
+    this.profile = new Profile();
     this.questionBlock = new QuestionBlock();
     this.login = new Login();
     this.signUp = new SignUp();
@@ -74,6 +78,8 @@ export default class Menu {
         }]);
       modal.showModal();
     });
+    console.log(userName());
+    if (userName()) this.linksArray[3].querySelector('.text').textContent = userName();
     this.questionCallStack.exec();
     this.questionCallStack.questionArray.forEach((el) => {
       this.editor.valueMatrix.createValueMatrixItem(el);
@@ -134,7 +140,12 @@ export default class Menu {
       {
         item: scopeSaver.linksArray[3],
         event() {
-          this.toggleContainer(this.login);
+          console.log(userName());
+          if (userName()) {
+            this.toggleContainer(this.profile);
+          } else {
+            this.toggleContainer(this.login);
+          }
         },
       },
       {

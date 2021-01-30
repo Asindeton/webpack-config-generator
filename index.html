@@ -54,6 +54,12 @@
     <main class="main container">
       <div class="inside-wrapper inside-wrapper_centered">
         <div class="editor hide block">
+          <div class="editor__download hide">
+  
+          </div>
+          <div class="waiter hide">
+            <div class="waiter__loading"></div>
+          </div>
           <h3 class="editor__title title">Editor</h3>
           <div class="value-matrix text scrollable">
           </div>
@@ -106,6 +112,16 @@
             </button>
           </div>
         </div>
+        <div class="profile block hide">
+          <p class="profile__text text">You logged as: <i class="profile__name text">Something</i></p>
+          <p class="profile__latest text">Latest created configuration:</p>
+          <!-- <buton class="button download-button input button button_agree">
+            <i class="icon fas fa-download download-button__icon text"></i>
+            <p class="download-button__text text">Filesize: <span class="download-button__filesize text"></span></p>
+            <p class="download-button__text text">Date of Creation: <span class="download-button__date text">30.01.2020</span></p>
+          </buton> -->
+          <buton type='button' class="button unauthorize input button button_agree">Unauthorize</butont>
+        </div>
         <div class="login block hide">
           <div class="waiter hide">
             <div class="waiter__loading"></div>
@@ -115,12 +131,12 @@
             <input
               type="text"
               class="input textfield"
-              name="login"
+              name="email"
               placeholder="Login"
               autocomplete="off"
             />
             <input
-              type="text"
+              type="password"
               class="input textfield"
               name="password"
               placeholder="Password"
@@ -144,7 +160,7 @@
             <input
               type="text"
               class="input textfield"
-              name="login"
+              name="name"
               placeholder="Login"
             />
             <input

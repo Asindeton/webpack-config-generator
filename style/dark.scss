@@ -190,6 +190,22 @@ body {
   border-radius: 0;
 }
 
+.download-button {
+  &__disabled:hover {
+    color: rgba($color: $textcol, $alpha: 0.6);
+    box-shadow: $btnswpos rgba($color: $textcol, $alpha: 0.3);
+    border: 2px solid rgba($color: $textcol, $alpha: 0.4);
+  }
+  &__disabled:focus {
+    color: rgba($color: $textcol, $alpha: 0.6);
+    box-shadow: $btnswpos rgba($color: $textcol, $alpha: 0.3);
+    border: 2px solid rgba($color: $textcol, $alpha: 0.4);
+  }
+}
+
+.editor__download {
+  background: #1c1d22;
+}
 .navbar__border {
   background: $accent2;
 }

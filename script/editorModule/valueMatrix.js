@@ -13,8 +13,8 @@ export default class ValueMatrix {
     elements.forEach((el) => {
       if (!el.disabled && (el.name !== 'undefined')) {
         if (el.type === 'checkbox') {
-          options[el.name] = el.checked;
-        } else if (el.value) {
+          if (el.checked) options[el.name] = true;
+        } else if (el.value.trim()) {
           options[el.name] = el.value;
         } else {
           options[el.name] = el.placeholder;
