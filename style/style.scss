@@ -42,6 +42,45 @@
   font-family: "Raleway", sans-serif;
 }
 
+.button {
+  min-width: 100px;
+  max-width: 220px;
+  width: 100%;
+  font-size: 1.2rem;
+  &:first-letter {
+    text-transform: capitalize;
+  }
+  &:hover {
+    transform: scale(1.02);
+  }
+}
+
+.input {
+  outline: none;
+  font-size: 1.2rem;
+  border: none;
+  background: none;
+  border-radius: 20px;
+  height: 50px;
+  transition: 0.2s all ease-in-out;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.textfield {
+  width: 90%;
+  padding: 20px;
+  border-radius: 18px;
+  background: none;
+  &:hover {
+    cursor: text;
+  }
+  &::placeholder {
+    opacity: 0.5;
+  }
+}
+
 body {
   position: relative;
   display: flex;
@@ -63,19 +102,6 @@ body {
 
 a {
   text-decoration: none;
-}
-
-.textfield {
-  width: 90%;
-  padding: 20px;
-  border-radius: 18px;
-  background: none;
-  &:hover {
-    cursor: text;
-  }
-  &::placeholder {
-    opacity: 0.5;
-  }
 }
 
 .container {
@@ -219,32 +245,6 @@ a {
   grid-template-rows: none;
 }
 
-.button {
-  min-width: 100px;
-  max-width: 220px;
-  width: 100%;
-  font-size: 1.2rem;
-  &:first-letter {
-    text-transform: capitalize;
-  }
-  &:hover {
-    transform: scale(1.02);
-  }
-}
-
-.input {
-  outline: none;
-  font-size: 1.2rem;
-  border: none;
-  background: none;
-  border-radius: 20px;
-  height: 50px;
-  transition: 0.2s all ease-in-out;
-  &:hover {
-    cursor: pointer;
-  }
-}
-
 .status {
   width: 100%;
   z-index: 2;
@@ -363,6 +363,19 @@ a {
     border-radius: 50%;
     animation: spin 2s linear infinite;
   }
+}
+
+.editor__download {
+  background: blue;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .flag {
@@ -601,6 +614,67 @@ a {
 .next {
   justify-self: flex-end;
 }
+
+.profile {
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 500px;
+  &__text {
+    align-self: end;
+    margin-bottom: auto;
+    margin-left: 15px;
+  }
+
+  &__latest {
+    align-self: center;
+    margin-bottom: 5px;
+    margin-left: 0;
+  }
+
+  &__name {
+    margin-left: 5px;
+  }
+}
+
+.unauthorize {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  max-width: 200px;
+  margin-top: auto;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.download-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 120px;
+  padding: 10px;
+  justify-content: space-evenly;
+  &__icon {
+    font-size: 32px;
+  }
+
+  &__text {
+    text-align: center;
+  }
+
+  &__disabled {
+    opacity: 0.6;
+    &:hover {
+      cursor: not-allowed;
+      transform: none;
+    }
+  }
+}
+
 @media screen and (max-width: 768px) {
   .navbar__list {
     margin-right: 0px;

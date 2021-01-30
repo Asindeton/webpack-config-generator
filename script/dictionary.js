@@ -58,6 +58,11 @@ const dictionary = {
     overwritingText: 'You are trying to overwrite existing answer, this can change question tree, are you really want to continue?',
     overwritingYes: 'Yes',
     overwritingNo: 'No',
+    loggedText: 'You logged as:',
+    latestCreatedText: 'Latest created configuration: ',
+    filesize: 'Filesize:',
+    dateOfCreation: 'Date of creation:',
+    unauthorize: 'Unauthorize',
     title: {
       preprocessors: 'preproccesors',
     },
@@ -130,6 +135,11 @@ const dictionary = {
     overwritingText: 'Вы пытаетесь перезаписать ответ, это может изменить древо вопросов, вы дейстивтельно хотите продолжить??',
     overwritingYes: 'Да',
     overwritingNo: 'Нет',
+    loggedText: 'Вы вошли как:',
+    latestCreatedText: 'Последняя созданная конфигурация',
+    filesize: 'Размер Файла: ',
+    dateOfCreation: 'Дата создания: ',
+    unauthorize: 'Выйти из профиля',
     title: {
       preprocessors: 'Препроцессоры',
     },

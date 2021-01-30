@@ -1,17 +1,25 @@
 import axios from 'axios';
 import dictionary from '../dictionary';
-import { login } from './Auth';
+import { login, userName } from './Auth';
 import parseFormData from '../util/parseFormData';
 
 export default class Login {
-  constructor() {
+  constructor(profile) {
     this.element = document.querySelector('.login');
     this.message = this.element.querySelector('.incorrect');
     this.waiter = this.element.querySelector('.waiter');
     this.form = this.element.querySelector('.login__form');
+    this.profile = profile;
     this.handleSubmit();
     this.updateLang();
     this.element.querySelector('.button_agree').addEventListener('click', this.submitForm.bind(this));
+  }
+
+  clearTextfields() {
+    this.form.querySelectorAll('.textfield').forEach((el) => {
+      // eslint-disable-next-line no-param-reassign
+      el.value = '';
+    });
   }
 
   updateLang() {
@@ -30,7 +38,6 @@ export default class Login {
     this.hideMessage();
     event.preventDefault();
     const data = parseFormData(new FormData(this.form));
-    console.log(data);
     if (data.email && data.password) {
       try {
         this.showWaiter();
@@ -41,6 +48,9 @@ export default class Login {
           data,
         });
         login(response.data.token, response.data.userId, response.data.name);
+        this.hide();
+        document.querySelectorAll('.navbar__item')[3].querySelector('.navbar__link').textContent = userName();
+        document.querySelectorAll('.navbar__item')[3].dispatchEvent(new Event('click'));
       } catch (e) {
         this.showMessage(e);
       } finally {
@@ -52,10 +62,14 @@ export default class Login {
   }
 
   hide() {
+    this.clearTextfields();
     this.element.classList.add('hide');
   }
 
   show() {
+    if (userName()) {
+      console.log('you logged');
+    }
     this.hideWaiter();
     this.hideMessage();
     this.element.classList.remove('hide');
