@@ -1,12 +1,12 @@
 import MenuBorderAnimation from '../animations/MenuBorderAnimation';
-import QuestionCallStack from '../questionsModule/questionCallStack';
+import QuestionCallStack from '../questionsModule/QuestionCallStack';
 import unsetQuestionsDeeply from '../util/unsetQuestionsDeeply';
 import questionArray from '../questionsModule/questionArray';
-import QuestionBlock from '../questionsModule/questionBlock';
+import QuestionBlock from '../questionsModule/QuestionBlock';
 import Login from './Login';
-import SignUp from './signUp';
+import SignUp from './SignUp';
 import Modal from './Modal';
-import Editor from '../editorModule/editor';
+import Editor from '../editorModule/Editor';
 import dictionary from '../dictionary';
 
 export default class Menu {

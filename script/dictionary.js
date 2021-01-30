@@ -45,6 +45,15 @@ const dictionary = {
     title: {
       preprocessors: 'preproccesors',
     },
+    errors: {
+      serverUnavailable: 'Server currently unavailable, try again later',
+      passwordIncorrect: 'Password incorrect',
+      repeatingPasswordIncorrect: 'Passwords do not match',
+      fillData: 'Please, fill all textfields',
+      emailValidation: 'Enter correct email',
+      loginTaken: 'This login has been taken, try another one',
+      passwordValidation: 'Password should contain 1 number, 1 letter and should be at least 8 characters length',
+    },
   },
   ru: {
     yesButton: 'Да',
@@ -91,6 +100,15 @@ const dictionary = {
     overwritingNo: 'Нет',
     title: {
       preprocessors: 'Препроцессоры',
+    },
+    errors: {
+      serverUnavailable: 'Сервер недоступен, попробуйте позже',
+      passwordIncorrect: 'Неправильный пароль',
+      repeatingPasswordIncorrect: 'Пароли не совпадают',
+      fillData: 'Пожалуйста, заполните все поля',
+      emailValidation: 'Введите корректную электронную почту',
+      emailTaken: 'Этот e уже занят, попробуйте другой',
+      passwordValidation: 'Пароль должен содержать 1 цифру, 1 букву и быть содержать как минимум 8 символов',
     },
   },
   lang: 'ru',

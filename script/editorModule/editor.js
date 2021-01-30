@@ -1,4 +1,4 @@
-import ValueMatrix from './valueMatrix';
+import ValueMatrix from './ValueMatrix';
 import dictionary from '../dictionary';
 
 export default class Editor {

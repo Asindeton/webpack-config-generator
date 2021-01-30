@@ -1,5 +1,5 @@
-import dictionary from '../dictionary';
 import axios from 'axios';
+import dictionary from '../dictionary';
 import { login } from './Auth';
 
 export default class SignUp {
@@ -13,7 +13,6 @@ export default class SignUp {
   updateLang() {
     this.element.querySelector('.title').textContent = dictionary[dictionary.lang].signUp;
     this.element.querySelector('.button').textContent = dictionary[dictionary.lang].signUpButton;
-    this.element.querySelector('.button_agree').addEventListener('click', this.submitForm.bind(this));
     this.element.querySelectorAll('.textfield')[0].placeholder = dictionary[dictionary.lang].signUpProfileName;
     this.element.querySelectorAll('.textfield')[1].placeholder = dictionary[dictionary.lang].signUpEmail;
     this.element.querySelectorAll('.textfield')[2].placeholder = dictionary[dictionary.lang].signUpPassword;
@@ -40,6 +39,7 @@ export default class SignUp {
   }
 
   show() {
+    this.hideWaiter();
     this.hideMessage();
     this.element.classList.remove('hide');
   }

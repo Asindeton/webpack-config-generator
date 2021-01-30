@@ -1,7 +1,7 @@
 import deleteEventListener from '../util/deleteEventListener';
 import Modal from '../components/Modal';
-import StatusBar from '../components/statusBar';
-import Editor from '../editorModule/editor';
+import StatusBar from '../components/StatusBar';
+import Editor from '../editorModule/Editor';
 import dictionary from '../dictionary';
 
 export default class questionBlock {
