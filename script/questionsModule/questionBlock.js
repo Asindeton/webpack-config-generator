@@ -55,8 +55,10 @@ export default class questionBlock {
     this.updateLang();
     this.nextQuestion = nextQuestion;
     this.previousQuestion = previousQuestion;
-    if (question.requireInput) this.input.classList.remove('hide');
-    else this.input.classList.add('hide');
+    if (question.requireInput) {
+      this.input.classList.remove('hide');
+      this.input.value = '';
+    } else this.input.classList.add('hide');
     if (nextQuestion && question.answer) {
       this.nextButton.removeAttribute('disabled');
       this.nextButton.addEventListener('click', () => {
@@ -128,8 +130,10 @@ export default class questionBlock {
   }
 
   checkIsInput(isAccept, requireInput, input, name, answer, buttonValue) {
-    if (/* isAccept && */ requireInput) {
-      this.checkInputHasValue(name, input);
+    if (requireInput) {
+      if (isAccept) {
+        this.checkInputHasValue(name, input);
+      } else this.sumbitEvent(input.placeholder);
     } else {
       this.sumbitEvent(buttonValue);
     }

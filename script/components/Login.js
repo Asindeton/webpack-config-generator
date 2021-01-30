@@ -11,6 +11,7 @@ export default class Login {
     this.form = this.element.querySelector('.login__form');
     this.handleSubmit();
     this.updateLang();
+    this.element.querySelector('.button_agree').addEventListener('click', this.submitForm.bind(this));
   }
 
   updateLang() {
@@ -39,7 +40,7 @@ export default class Login {
           url: 'https://webpack-generator-be.herokuapp.com/api/auth/login',
           data,
         });
-        login(response.data.token);
+        login(response.data.token, response.data.userId, response.data.name);
       } catch (e) {
         this.showMessage(e);
       } finally {

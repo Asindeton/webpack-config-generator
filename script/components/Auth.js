@@ -1,15 +1,19 @@
 import * as storage from '../util/localStorage';
 
-const tokenName = 'jwt-token';
+const tokenName = 'jwToken';
 const userIdName = 'userId';
+const nameValue = 'nameValue';
 
-const login = (token, userId) => {
+const login = (token, userId, name) => {
     storage.set(tokenName, token);
     storage.set(userIdName, userId);
+    storage.set(nameValue, name);
 };
 
 const logout = () => {
     storage.del(tokenName);
+    storage.del(userIdName);
+    storage.del(nameValue);
 };
 
 const token = () => {
@@ -20,4 +24,8 @@ const userId = () => {
     return storage.get(userIdName);
 };
 
-export { login, logout, token, userId };
+const userName = () => {
+    return storage.get(nameValue);
+};
+
+export { login, logout, token, userId, userName };
