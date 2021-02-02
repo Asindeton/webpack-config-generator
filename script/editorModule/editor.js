@@ -1,40 +1,42 @@
 import axios from 'axios';
 import ValueMatrix from './ValueMatrix';
 import dictionary from '../dictionary';
-import DownloadButton from '../components/DownloadButton';
+
 import createDownloadZip from '../util/createDownloadZip';
+import DownloadForm from '../components/DownloadForm';
 
 export default class Editor {
   constructor() {
     this.element = document.querySelector('.editor');
     this.waiter = this.element.querySelector('.waiter');
-    this.downloadForm = this.element.querySelector('.editor__download');
-    this.downloadButton = new DownloadButton();
     this.valueMatrix = new ValueMatrix();
+    this.downloadForm = new DownloadForm();
     this.updateLang();
   }
 
   updateLang() {
     this.element.querySelector('.editor__generate').textContent = dictionary[dictionary.lang].editorGenerate;
     this.element.querySelector('.title').textContent = dictionary[dictionary.lang].editor;
+    this.downloadForm.updateLang();
   }
 
   handleEvents() {
     this.element.querySelector('.editor__generate').addEventListener('click', async () => {
+      let response = null;
       const data = this.valueMatrix.getValues();
       try {
         this.showWaiter();
-        const response = await axios({
+        response = await axios({
           method: 'post',
           //url: 'http://localhost:3000/api/config/generate',
           url: 'https://webpack-generator-be.herokuapp.com/api/config/generate',
           data,
         });
-        createDownloadZip(response.data.webpackConfig, response.data.npmRunCommands, response.data.npmRunDCommands);
+        createDownloadZip(response.data.webpackConfig, response.data.npmRun, response.data.npmDRun);
         this.showDownload();
-        this.downloadForm.append(this.downloadButton.createElement());
+        this.downloadForm.set(response.data.npmRun, response.data.npmDRun);
       } catch (e) {
-        //
+        console.log(e);//
       } finally {
         this.hideWaiter();
       }
@@ -42,13 +44,16 @@ export default class Editor {
   }
 
   hide() {
-    this.hideWaiter();
-    this.hideDownload();
     this.element.classList.add('hide');
   }
 
   show() {
     this.element.classList.remove('hide');
+  }
+
+  showDownload() {
+    this.downloadForm.show();
+    this.hide();
   }
 
   showWaiter() {
@@ -57,14 +62,5 @@ export default class Editor {
 
   hideWaiter() {
     this.waiter.classList.add('hide');
-  }
-
-  showDownload() {
-    this.downloadForm.classList.remove('hide');
-  }
-
-  hideDownload() {
-    this.downloadForm.innerHTML = '';
-    this.downloadForm.classList.add('hide');
   }
 }

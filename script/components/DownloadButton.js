@@ -10,6 +10,7 @@ export default class DownloadButton {
     this.creationDateText = create('p', 'download-button__text text');
     this.creationDateValue = create('span', 'download-button__date text');
     this.updateLang();
+    this.createElement();
     if (data) {
       this.setValues(data);
     } else {
@@ -22,7 +23,6 @@ export default class DownloadButton {
     this.wrapper.append(this.filesizeText);
     this.filesizeText.after(this.filesizeValue);
     this.wrapper.append(this.creationDateText);
-    return this.wrapper;
   }
 
   updateLang() {
