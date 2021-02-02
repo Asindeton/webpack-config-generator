@@ -1,4 +1,3 @@
-/* eslint-disable no-param-reassign */
 import createCustomCheckbox from '../util/createCustomCheckBox';
 import createCustomTextfield from '../util/createCustomTextfield';
 
@@ -24,7 +23,6 @@ export default class ValueMatrix {
     return options;
   }
 
-  // eslint-disable-next-line class-methods-use-this
   setValue(sendingValue, value, isInput) {
     const elements = document.getElementsByName(sendingValue);
     elements.forEach((el) => {
@@ -38,16 +36,13 @@ export default class ValueMatrix {
     });
   }
 
-  // eslint-disable-next-line class-methods-use-this
   setValueMatrixItemState(parentInput, wrapper) {
     if (((parentInput.type === 'checkbox' && parentInput.checked)
     || (parentInput.type === 'textfield' && parentInput.value)) && !parentInput.disabled) {
       wrapper.classList.remove('value-matrix__item_inactive');
-      // eslint-disable-next-line no-param-reassign
       wrapper.querySelector('input').disabled = false;
     } else {
       wrapper.classList.add('value-matrix__item_inactive');
-      // eslint-disable-next-line no-param-reassign
       wrapper.querySelector('input').disabled = true;
     }
     wrapper.querySelector('input').dispatchEvent(new Event('change'));

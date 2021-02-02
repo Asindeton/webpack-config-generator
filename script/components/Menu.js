@@ -78,7 +78,6 @@ export default class Menu {
         }]);
       modal.showModal();
     });
-    console.log(userName());
     if (userName()) this.linksArray[3].querySelector('.text').textContent = userName();
     this.questionCallStack.exec();
     this.questionCallStack.questionArray.forEach((el) => {
@@ -140,7 +139,6 @@ export default class Menu {
       {
         item: scopeSaver.linksArray[3],
         event() {
-          console.log(userName());
           if (userName()) {
             this.toggleContainer(this.profile);
           } else {
