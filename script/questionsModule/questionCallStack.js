@@ -6,7 +6,6 @@ export default class QuestionCallStack {
     this.questionBlock = questionBlock;
     this.entryQuestion = entryQuestion;
     this.afterQuestion = afterQuestion;
-    this.questionsAmount = 0;
     this.isCalledFromNext = isCalledFromNext;
     if (this.isCalledFromNext) {
       this.currIndex = this.questionArray.length - 1;

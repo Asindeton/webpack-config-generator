@@ -15,7 +15,6 @@ export default class SignUp {
 
   clearTextfields() {
     this.form.querySelectorAll('.textfield').forEach((el) => {
-      // eslint-disable-next-line no-param-reassign
       el.value = '';
     });
   }
@@ -33,7 +32,6 @@ export default class SignUp {
     this.hideMessage();
     event.preventDefault();
     const data = parseFormData(new FormData(this.form));
-    console.log(data);
     if (data.email && data.password && data.name) {
       try {
         this.showWaiter();
@@ -48,7 +46,7 @@ export default class SignUp {
         document.querySelectorAll('.navbar__item')[3].querySelector('.navbar__link').textContent = userName();
         document.querySelectorAll('.navbar__item')[3].dispatchEvent(new Event('click'));
       } catch (e) {
-        this.showMessage(e);
+        this.showMessage(e.data.message);
       } finally {
         this.hideWaiter();
       }
@@ -69,7 +67,7 @@ export default class SignUp {
   }
 
   showMessage(message) {
-    this.message.textContent = message;
+    this.message.textContent = dictionary[dictionary.lang].errors[message] || message;
     this.message.classList.remove('hide');
   }
 

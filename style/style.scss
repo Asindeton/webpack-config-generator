@@ -675,6 +675,16 @@ a {
   }
 }
 
+.under-construction {
+  display: block;
+  position: absolute;
+  transform: rotate(50deg);
+  opacity: 0.8;
+  width: 40%;
+  top: -5px;
+  right: -40px;
+}
+
 @media screen and (max-width: 768px) {
   .navbar__list {
     margin-right: 0px;
@@ -693,4 +703,9 @@ a {
 
 .hide {
   display: none;
+}
+
+.unvisible {
+  transition: 0s all;
+  opacity: 0;
 }

@@ -1,5 +1,5 @@
 {
-  "name": "covid-dashboard",
+  "name": "webpack-config-generator",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,18 +8,18 @@
     "dev": "webpack --mode development",
     "watch": "webpack --watch",
     "eslint": "eslint script",
-    "fix": "eslint --fix src",
+    "fix": "eslint --fix script",
     "server": "webpack serve"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Asindeton/covid-dashboard.git"
+    "url": "git+https://github.com/Asindeton/webpack-config-generator.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Asindeton/covid-dashboard/issues"
+    "url": "https://github.com/Asindeton/webpack-config-generator/issues"
   },
   "devDependencies": {
     "@babel/core": "^7.11.4",
@@ -44,5 +44,5 @@
     "@babel/polyfill": "^7.10.4",
     "axios": "^0.21.1"
   },
-  "homepage": "https://github.com/Asindeton/covid-dashboard#readme"
+  "homepage": "https://github.com/Asindeton/webpack-config-generator#readme"
 }

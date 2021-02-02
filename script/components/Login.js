@@ -17,7 +17,6 @@ export default class Login {
 
   clearTextfields() {
     this.form.querySelectorAll('.textfield').forEach((el) => {
-      // eslint-disable-next-line no-param-reassign
       el.value = '';
     });
   }
@@ -52,7 +51,7 @@ export default class Login {
         document.querySelectorAll('.navbar__item')[3].querySelector('.navbar__link').textContent = userName();
         document.querySelectorAll('.navbar__item')[3].dispatchEvent(new Event('click'));
       } catch (e) {
-        this.showMessage(e);
+        this.showMessage(e.data.message);
       } finally {
         this.hideWaiter();
       }
@@ -67,16 +66,13 @@ export default class Login {
   }
 
   show() {
-    if (userName()) {
-      console.log('you logged');
-    }
     this.hideWaiter();
     this.hideMessage();
     this.element.classList.remove('hide');
   }
 
   showMessage(message) {
-    this.message.textContent = dictionary[dictionary.lang].errors[message];
+    this.message.textContent = dictionary[dictionary.lang].errors[message] || message;
     this.message.classList.remove('hide');
   }
 
