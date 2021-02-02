@@ -62,10 +62,24 @@ const questionArray = [
   //   ],
   // },
   {
+    title: 'Context',
+    sendingValue: 'context',
+    requireInput: true,
+    placeholder: 'src',
+    answer: null,
+  },
+  {
     title: 'Entry Points',
     sendingValue: 'entryPoints',
     requireInput: true,
-    placeholder: './src/index.js/',
+    placeholder: 'script.js',
+    answer: null,
+  },
+  {
+    title: 'Output folder',
+    sendingValue: 'outputFolder',
+    requireInput: true,
+    placeholder: 'dist',
     answer: null,
   },
   {
@@ -74,7 +88,7 @@ const questionArray = [
     answer: null,
     child: [
       {
-        sendingValue: 'htmlTeamplate',
+        sendingValue: 'htmlTemplate',
         requireInput: true,
         placeholder: 'index.html',
         answer: null,
@@ -101,16 +115,60 @@ const questionArray = [
     ],
   },
   {
-    title: 'TypeScript',
-    sendingValue: 'typescript',
+    title: 'Vanilla JS',
+    sendingValue: 'vanillaJS',
     requireInput: false,
     answer: null,
+    child: [
+      {
+        title: 'TypeScript',
+        sendingValue: 'typescript',
+        requireInput: false,
+        answer: null,
+      },
+      {
+        title: 'React',
+        sendingValue: 'react',
+        requireInput: false,
+        answer: null,
+      },
+    ],
   },
   {
-    title: 'React',
-    sendingValue: 'react',
+    title: 'local files',
+    sendingValue: 'localFiles',
     requireInput: false,
     answer: null,
+    child: [
+      {
+        title: 'Image extension ',
+        sendingValue: 'imageExtension ',
+        requireInput: true,
+        placeholder: '/\.(png|jpg|svg|gif)$/',
+        answer: null,
+      },
+      {
+        title: 'Font extension ',
+        sendingValue: 'fontExtension ',
+        requireInput: true,
+        placeholder: '/\.(ttf|woff|woff2|eot)$/',
+        answer: null,
+      },
+      {
+        title: 'Audio extension ',
+        sendingValue: 'audioExtension ',
+        requireInput: true,
+        placeholder: '/\.mp3$/',
+        answer: null,
+      },
+      {
+        title: 'Video extension ',
+        sendingValue: 'videoExtension ',
+        requireInput: true,
+        placeholder: '/\.mp4$/',
+        answer: null,
+      },
+    ],
   },
   {
     title: 'DevServer',
