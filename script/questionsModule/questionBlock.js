@@ -56,21 +56,27 @@ export default class questionBlock {
     this.nextQuestion = nextQuestion;
     this.previousQuestion = previousQuestion;
     if (question.requireInput) {
-      this.input.classList.remove('hide');
+      this.input.classList.remove('unvisible');
       this.input.value = '';
-    } else this.input.classList.add('hide');
+    } else {
+      this.input.classList.add('unvisible');
+    }
     if (nextQuestion && question.answer) {
       this.nextButton.removeAttribute('disabled');
       this.nextButton.addEventListener('click', () => {
         nextQuestion();
       });
-    } else this.nextButton.setAttribute('disabled', 'disabled');
+    } else {
+      this.nextButton.setAttribute('disabled', 'disabled');
+    }
     if (previousQuestion && previousQuestionAnswer) {
       this.previousButton.removeAttribute('disabled');
       this.previousButton.addEventListener('click', () => {
         previousQuestion();
       });
-    } else this.previousButton.setAttribute('disabled', 'disabled');
+    } else {
+      this.previousButton.setAttribute('disabled', 'disabled');
+    }
     this.handleSubmit(this.acceptButton, true,
       question.requireInput, question.title, question.answer);
     this.handleSubmit(this.rejectButton, false,
@@ -84,7 +90,6 @@ export default class questionBlock {
     if (this.nextQuestion) this.nextQuestion();
   }
 
-  // eslint-disable-next-line class-methods-use-this
   checkInputHasValue(name, input) {
     let { value } = input;
     if (value === '') {
@@ -133,7 +138,9 @@ export default class questionBlock {
     if (requireInput) {
       if (isAccept) {
         this.checkInputHasValue(name, input);
-      } else this.sumbitEvent(input.placeholder);
+      } else {
+        this.sumbitEvent(input.placeholder);
+      }
     } else {
       this.sumbitEvent(buttonValue);
     }

@@ -21,7 +21,6 @@ export default class Editor {
   handleEvents() {
     this.element.querySelector('.editor__generate').addEventListener('click', async () => {
       const data = this.valueMatrix.getValues();
-      console.log(data);
       try {
         this.showWaiter();
         const response = await axios({
@@ -33,7 +32,7 @@ export default class Editor {
         this.showDownload();
         this.downloadForm.append(this.downloadButton.createElement());
       } catch (e) {
-        console.log(e);
+        //
       } finally {
         this.hideWaiter();
       }
