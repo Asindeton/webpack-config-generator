@@ -1,6 +1,7 @@
 import axios from 'axios';
 import ValueMatrix from './ValueMatrix';
 import dictionary from '../dictionary';
+import Modal from '../components/Modal';
 
 import createDownloadZip from '../util/createDownloadZip';
 import DownloadForm from '../components/DownloadForm';
@@ -28,7 +29,7 @@ export default class Editor {
         this.showWaiter();
         response = await axios({
           method: 'post',
-          //url: 'http://localhost:3000/api/config/generate',
+          // url: 'http://localhost:3000/api/config/generate',
           url: 'https://webpack-generator-be.herokuapp.com/api/config/generate',
           data,
         });
@@ -36,7 +37,13 @@ export default class Editor {
         this.showDownload();
         this.downloadForm.set(response.data.npmRun, response.data.npmDRun);
       } catch (e) {
-        console.log(e);//
+        const modal = new Modal('error', 'Error', e.response.data.massageCode, [
+          {
+            text: 'Ok',
+            succesButton: true,
+          },
+        ]);
+        modal.showModal();
       } finally {
         this.hideWaiter();
       }
