@@ -17,10 +17,11 @@ export default class DownloadForm {
     this.downloadButton.updateLang();
   }
 
-  set(npm, npmDev /* data */) {
+  set(npm, npmDev, ...data) {
     this.instructionArray[1].textContent = npm;
     this.instructionArray[2].textContent = npmDev;
-    // this.downloadButton.handleDownload(data);
+    console.log(...data);
+    this.downloadButton.setValues(...data);
   }
 
   show() {

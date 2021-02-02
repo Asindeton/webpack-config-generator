@@ -2,7 +2,7 @@ import axios from 'axios';
 import ValueMatrix from './ValueMatrix';
 import dictionary from '../dictionary';
 import Modal from '../components/Modal';
-
+import memorySizeOf from '../util/getSizeOf';
 import createDownloadZip from '../util/createDownloadZip';
 import DownloadForm from '../components/DownloadForm';
 
@@ -33,9 +33,11 @@ export default class Editor {
           url: 'https://webpack-generator-be.herokuapp.com/api/config/generate',
           data,
         });
-        createDownloadZip(response.data.webpackConfig, response.data.npmRun, response.data.npmDRun);
         this.showDownload();
-        this.downloadForm.set(response.data.npmRun, response.data.npmDRun);
+        // eslint-disable-next-line no-undef
+        this.downloadForm.set(response.data.npmRun, response.data.npmDRun, createDownloadZip.bind(
+          this, response.data.webpackConfig, response.data.npmRun, response.data.npmDRun,
+        ), memorySizeOf(response.data));
       } catch (e) {
         const modal = new Modal('error', 'Error', e.response.data.massageCode, [
           {
