@@ -2,6 +2,7 @@ import axios from 'axios';
 import ValueMatrix from './ValueMatrix';
 import dictionary from '../dictionary';
 import DownloadButton from '../components/DownloadButton';
+import createDownloadZip from '../util/createDownloadZip';
 
 export default class Editor {
   constructor() {
@@ -26,10 +27,11 @@ export default class Editor {
         this.showWaiter();
         const response = await axios({
           method: 'post',
-          // url: 'http://localhost:3000/api/auth/register',
-          url: 'https://webpack-generator-be.herokuapp.com//api/config/generate',
+          //url: 'http://localhost:3000/api/config/generate',
+          url: 'https://webpack-generator-be.herokuapp.com/api/config/generate',
           data,
         });
+        createDownloadZip(response.data.webpackConfig, response.data.npmRunCommands, response.data.npmRunDCommands);
         this.showDownload();
         this.downloadForm.append(this.downloadButton.createElement());
       } catch (e) {

@@ -21,7 +21,7 @@ export default class ValueMatrix {
         }
       }
     });
-    console.log(options);
+    return options;
   }
 
   // eslint-disable-next-line class-methods-use-this
