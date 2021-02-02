@@ -1,37 +1,36 @@
 import create from '../util/create';
 import dictionary from '../dictionary';
 import deleteEventListener from '../util/deleteEventListener';
+import { file } from 'jszip';
 
 export default class DownloadButton {
   constructor(data) {
+    this.createElement();
+    this.updateLang();
+    this.setValues(data);
+  }
+
+  createElement(filesize) {
     this.wrapper = create('button', 'button download-button input button button_agree', [
       create('i', 'icon fas fa-download download-button__icon text')]);
     this.filesizeText = create('p', 'download-button__text text');
     this.filesizeValue = create('span', 'download-button__filesize text');
-    // this.creationDateText = create('p', 'download-button__text text');
-    // this.creationDateValue = create('span', 'download-button__date text');
-    this.updateLang();
-    this.createElement();
-    this.setValues(data);
-  }
-
-  createElement() {
-    this.wrapper.append(this.filesizeText);
+    this.filesizeValue.textContent = filesize;
     this.filesizeText.after(this.filesizeValue);
+    this.wrapper.append(this.filesizeText);
   }
 
   updateLang() {
     this.filesizeText.textContent = dictionary[dictionary.lang].filesize;
     this.filesizeText.lastChild.after(this.filesizeValue);
-    console.log(this.wrapper);
   }
 
   setValues(data, filesize) {
     if (data) {
       this.wrapper.classList.remove('download-button__disabled');
       this.disabled = false;
-      this.filesizeValue.textContent = filesize;
       // this.creationDateValue.textContent = data.date;
+      this.createElement(filesize);
       this.updateLang();
       this.handleDownload(data);
     } else {
@@ -41,7 +40,7 @@ export default class DownloadButton {
   }
 
   handleDownload(download) {
-    this.wrapper = deleteEventListener(this.wrapper);
+    if (this.wrapper.parentNode) this.wrapper = deleteEventListener(this.wrapper);
     this.wrapper.addEventListener('click', () => {
       download();
     });

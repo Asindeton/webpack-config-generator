@@ -20,19 +20,20 @@ export default class DownloadForm {
   set(npm, npmDev, ...data) {
     this.instructionArray[1].textContent = npm;
     this.instructionArray[2].textContent = npmDev;
-    console.log(...data);
     this.downloadButton.setValues(...data);
   }
 
-  show() {
+  show(npm, npmDev, ...data) {
+    if (this.element.querySelector('.download-button')) {
+      this.element.querySelector('.download-button').remove();
+    }
     this.element.classList.remove('hide');
+    this.set(npm, npmDev, ...data);
+    console.log(this.downloadButton.wrapper);
     this.element.append(this.downloadButton.wrapper);
   }
 
   hide() {
-    if (this.element.querySelector('download-button')) {
-      this.element.querySelector('download-button').remove();
-    }
     this.element.classList.add('hide');
   }
 }

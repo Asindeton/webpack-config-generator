@@ -33,13 +33,13 @@ export default class Editor {
           url: 'https://webpack-generator-be.herokuapp.com/api/config/generate',
           data,
         });
-        this.showDownload();
-        // eslint-disable-next-line no-undef
-        this.downloadForm.set(response.data.npmRun, response.data.npmDRun, createDownloadZip.bind(
+        this.showDownload(response.data.npmRun, response.data.npmDRun, createDownloadZip.bind(
           this, response.data.webpackConfig, response.data.npmRun, response.data.npmDRun,
         ), memorySizeOf(response.data));
+        // eslint-disable-next-line no-undef
       } catch (e) {
-        const modal = new Modal('error', 'Error', e.response.data.massageCode, [
+        console.log(e);
+        const modal = new Modal('error', 'Error', e.response.data.messageCode, [
           {
             text: 'Ok',
             succesButton: true,
@@ -60,8 +60,8 @@ export default class Editor {
     this.element.classList.remove('hide');
   }
 
-  showDownload() {
-    this.downloadForm.show();
+  showDownload(npm, npmDev, ...data) {
+    this.downloadForm.show(npm, npmDev, ...data);
     this.hide();
   }
 
