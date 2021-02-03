@@ -30,7 +30,7 @@ export default class Editor {
           url: 'https://webpack-generator-be.herokuapp.com/api/config/generate',
           data,
         });
-        createDownloadZip(response.data.webpackConfig, response.data.npmRunCommands, response.data.npmRunDCommands);
+        createDownloadZip(response.data.webpackConfig, response.data.npmRun, response.data.npmDRun);
         this.showDownload();
         this.downloadForm.append(this.downloadButton.createElement());
       } catch (e) {
