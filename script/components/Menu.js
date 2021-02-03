@@ -14,7 +14,6 @@ import Profile from './Profile';
 export default class Menu {
   constructor() {
     this.element = document.querySelector('.navbar__list');
-    this.previousTarget = document.querySelector('editor');
     this.downloadForm = document.querySelector('.download');
     this.menuAnimation = new MenuBorderAnimation();
     this.lang = navigator.language.slice(0, 2);
@@ -166,6 +165,6 @@ export default class Menu {
     });
     menuArray[0].item.dispatchEvent(new Event('click'));
     this.previousTarget = this.questionBlock;
-    this.changeLang(this.lang);
+    this.changeLang();
   }
 }

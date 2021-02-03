@@ -10,8 +10,6 @@ export default class floatingCanvasBackground {
     this.lifetimeMultiplier = 2500;
     this.particles = [];
     this.resize();
-    this.randomizeElProp();
-    this.createParticle();
     this.startGeneration();
     window.addEventListener('resize', () => {
       this.resize();
