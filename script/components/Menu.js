@@ -15,6 +15,7 @@ export default class Menu {
   constructor() {
     this.element = document.querySelector('.navbar__list');
     this.previousTarget = document.querySelector('editor');
+    this.downloadForm = document.querySelector('.download');
     this.menuAnimation = new MenuBorderAnimation();
     this.lang = navigator.language.slice(0, 2);
     this.initiallize();
@@ -22,6 +23,10 @@ export default class Menu {
   }
 
   toggleContainer(target) {
+    if (!this.downloadForm.classList.contains('hide')) {
+      this.previousTarget = null;
+      this.downloadForm.classList.add('hide');
+    }
     if (target !== this.previousTarget) {
       if (this.previousTarget) {
         this.previousTarget.hide();

@@ -51,7 +51,7 @@ export default class Login {
         document.querySelectorAll('.navbar__item')[3].querySelector('.navbar__link').textContent = userName();
         document.querySelectorAll('.navbar__item')[3].dispatchEvent(new Event('click'));
       } catch (e) {
-        this.showMessage(e.data.message);
+        this.showMessage(e.response.data.messageCode);
       } finally {
         this.hideWaiter();
       }

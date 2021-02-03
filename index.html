@@ -57,10 +57,22 @@
     </header>
     <main class="main container">
       <div class="inside-wrapper inside-wrapper_centered">
-        <div class="editor hide block">
-          <div class="editor__download hide">
-  
+        <div class="download block hide">
+            <div class="waiter hide">
+              <div class="waiter__loading"></div>
+            </div>
+            <h3 class="download__title title">Congratulation!<br> You created a new webpack config.</h3>
+            <h3 class="download__subtitle text">Now follow this simple steps to make it work:</h3>
+            <ul class="instruction scrollable">
+              <li class="instruction__item text">1. Run npm commands to install dependencies
+              </li>
+              <li class="instruction__item text instruction__item_centered">npm i .....
+              </li>
+              <li class="instruction__item text instruction__item_centered"> npm i -D .....</li>
+              <li class="instruction__item text">Copy webpack.config.js to project root folder (Скопируйте webpack.config.js в корневую директорию проекта)</li>
+            </ul>
           </div>
+        <div class="editor hide block">
           <div class="waiter hide">
             <div class="waiter__loading"></div>
           </div>
