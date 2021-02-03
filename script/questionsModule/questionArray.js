@@ -116,7 +116,7 @@ const questionArray = [
   },
   {
     title: 'Vanilla JS',
-    sendingValue: 'vanillaJS',
+    sendingValue: 'vanillaJs',
     requireInput: false,
     answer: null,
     child: [
@@ -248,38 +248,6 @@ const questionArray = [
   {
     title: 'Bundle analyzer',
     sendingValue: 'bundleAnalyzer',
-    requireInput: false,
-    answer: null,
-    child: [
-      {
-        title: 'webpack-char',
-        sendingValue: 'webpackChar',
-        requireInput: false,
-        answer: null,
-      },
-      {
-        title: 'webpack-visualizer',
-        sendingValue: 'webpackVisualizer',
-        requireInput: false,
-        answer: null,
-      },
-      {
-        title: 'webpack-bundle-analyze',
-        sendingValue: 'webpackBundleAnalyze',
-        requireInput: false,
-        answer: null,
-      },
-      {
-        title: 'bundle-stats',
-        sendingValue: 'bundleStats',
-        requireInput: false,
-        answer: null,
-      },
-    ],
-  },
-  {
-    title: 'Auto npm install',
-    sendingValue: 'npmInstallWebpackPlugin',
     requireInput: false,
     answer: null,
   },
