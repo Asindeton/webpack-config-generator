@@ -46,7 +46,9 @@ export default class SignUp {
         document.querySelectorAll('.navbar__item')[3].querySelector('.navbar__link').textContent = userName();
         document.querySelectorAll('.navbar__item')[3].dispatchEvent(new Event('click'));
       } catch (e) {
-        this.showMessage(e.data.message);
+        let error = e.response.data.messageCode || e.response.data.message;
+        if (e.response.data.errors) error = e.response.data.errors[0].param;
+        this.showMessage(error);
       } finally {
         this.hideWaiter();
       }

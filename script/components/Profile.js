@@ -10,7 +10,7 @@ export default class Profile {
     this.profileName = this.element.querySelector('.profile__name');
     this.unauthorize = this.element.querySelector('.unauthorize');
     this.downloadButton = new DownloadButton(null);
-    this.latestCreatedText.after(this.downloadButton.createElement());
+    this.latestCreatedText.after(this.downloadButton.wrapper);
     this.updateLang();
     this.handleUnauthorize();
   }

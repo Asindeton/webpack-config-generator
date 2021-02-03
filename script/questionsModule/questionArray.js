@@ -236,9 +236,9 @@ const questionArray = [
             ],
           },
           {
-            title: 'Source Mapping',
+            title: 'Source Map',
             requireInput: false,
-            sendingValue: 'sourceMapping',
+            sendingValue: 'sourceMap',
             answer: null,
           },
         ],
@@ -246,8 +246,8 @@ const questionArray = [
     ],
   },
   {
-    title: 'Bundle Analysis',
-    sendingValue: 'bundleAnalysis',
+    title: 'Bundle analyzer',
+    sendingValue: 'bundleAnalyzer',
     requireInput: false,
     answer: null,
     child: [
