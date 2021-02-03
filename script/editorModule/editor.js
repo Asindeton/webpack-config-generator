@@ -30,20 +30,18 @@ export default class Editor {
         this.showWaiter();
         response = await axios({
           method: 'post',
-          //url: 'http://localhost:3000/api/config/generate',
+          // url: 'http://localhost:3000/api/config/generate',
           url: 'https://webpack-generator-be.herokuapp.com/api/config/generate',
           headers: {
-            Authorization: `Bearer ${token}`
+            Authorization: `Bearer ${token}`,
           },
-          data
+          data,
         });
         this.showDownload(response.data.npmRun, response.data.npmDRun, createDownloadZip.bind(
           this, response.data.webpackConfig, response.data.npmRun, response.data.npmDRun,
         ), memorySizeOf(response.data));
-        // eslint-disable-next-line no-undef
       } catch (e) {
-        console.log(e);
-        const modal = new Modal('error', 'Error', e.response.data.messageCode, [
+        const modal = new Modal('error', 'Error', e.response.data.message, [
           {
             text: 'Ok',
             succesButton: true,

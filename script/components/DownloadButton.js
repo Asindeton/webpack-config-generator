@@ -1,7 +1,6 @@
 import create from '../util/create';
 import dictionary from '../dictionary';
 import deleteEventListener from '../util/deleteEventListener';
-import { file } from 'jszip';
 
 export default class DownloadButton {
   constructor(data) {
@@ -17,7 +16,7 @@ export default class DownloadButton {
     this.filesizeValue = create('span', 'download-button__filesize text');
     this.filesizeValue.textContent = filesize;
     this.filesizeText.after(this.filesizeValue);
-    this.wrapper.append(this.filesizeText);
+    if (filesize) this.wrapper.append(this.filesizeText);
   }
 
   updateLang() {

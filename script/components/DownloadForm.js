@@ -29,7 +29,6 @@ export default class DownloadForm {
     }
     this.element.classList.remove('hide');
     this.set(npm, npmDev, ...data);
-    console.log(this.downloadButton.wrapper);
     this.element.append(this.downloadButton.wrapper);
   }
 

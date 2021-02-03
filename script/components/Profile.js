@@ -1,6 +1,7 @@
 import axios from 'axios';
 import dictionary from '../dictionary';
 import DownloadButton from './DownloadButton';
+import createDownloadZip from '../util/createDownloadZip';
 import { logout, userName, token } from './Auth';
 
 export default class Profile {
@@ -11,19 +12,32 @@ export default class Profile {
     this.profileName = this.element.querySelector('.profile__name');
     this.unauthorize = this.element.querySelector('.unauthorize');
     this.downloadButton = new DownloadButton(null);
+    this.downloadButton.disabled = false;
     this.latestCreatedText.after(this.downloadButton.wrapper);
     this.updateLang();
     this.handleUnauthorize();
+    this.downloadButton.wrapper.classList.remove('download-button__disabled');
     this.downloadButton.wrapper.addEventListener('click', async () => {
-      const response = await axios({
-        method: 'get',
-        // url: 'http://localhost:3000/api/config/last',
-        url: 'https://webpack-generator-be.herokuapp.com/api/config/last',
-        headers: {
-          Authorization: `Bearer ${token()}`
-        }        
-      });
-      debugger;
+      try {
+        const response = await axios({
+          method: 'get',
+          // url: 'http://localhost:3000/api/config/last',
+          url: 'https://webpack-generator-be.herokuapp.com/api/config/last',
+          headers: {
+            Authorization: `Bearer ${token()}`,
+          },
+        });
+        if (response.data) {
+          createDownloadZip(response.data.webpackConfig,
+            response.data.npmRun, response.data.npmDRun);
+        }
+      } catch (e) {
+        this.downloadButton.wrapper.classList.add('download-button__disabled');
+        this.downloadButton.disabled = true;
+      } finally {
+        this.downloadButton.wrapper.classList.remove('download-button__disabled');
+        this.downloadButton.disabled = false;
+      }
     });
   }
 
