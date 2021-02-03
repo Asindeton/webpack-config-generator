@@ -116,7 +116,7 @@ const questionArray = [
   },
   {
     title: 'Vanilla JS',
-    sendingValue: 'vanillaJS',
+    sendingValue: 'vanillaJs',
     requireInput: false,
     answer: null,
     child: [
