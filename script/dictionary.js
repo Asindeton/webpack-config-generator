@@ -75,6 +75,8 @@ const dictionary = {
     downloadSubtitle: 'Now follow this simple steps to make it work:',
     instructionFirst: '1. Run npm commands to install dependencies',
     instructionSecond: '2. Copy webpack.config.js to project root folder',
+    emptyConfigTitle: 'Error',
+    emptyConfigText: 'you have not created any configurations yet',
     title: {
       preprocessors: 'preproccesors',
     },
@@ -164,6 +166,8 @@ const dictionary = {
     downloadSubtitle: 'Для дальнейшей работы проделайте следующие шаги:',
     instructionFirst: '1. Введите данные npm command\'ы для добавления зависимостей проекта',
     instructionSecond: '2. Скопируйте файл webpack.config.js в корневой директорий проекта',
+    emptyConfigTitle: 'Ошибка',
+    emptyConfigText: 'Вы еще ни создали ни одной конфигурации!',
     title: {
       preprocessors: 'Препроцессоры',
     },

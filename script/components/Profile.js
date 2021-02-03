@@ -2,6 +2,7 @@ import axios from 'axios';
 import dictionary from '../dictionary';
 import DownloadButton from './DownloadButton';
 import createDownloadZip from '../util/createDownloadZip';
+import Modal from './Modal';
 import { logout, userName, token } from './Auth';
 
 export default class Profile {
@@ -16,7 +17,6 @@ export default class Profile {
     this.latestCreatedText.after(this.downloadButton.wrapper);
     this.updateLang();
     this.handleUnauthorize();
-    this.downloadButton.wrapper.classList.remove('download-button__disabled');
     this.downloadButton.wrapper.addEventListener('click', async () => {
       try {
         const response = await axios({
@@ -31,12 +31,20 @@ export default class Profile {
           createDownloadZip(response.data.webpackConfig,
             response.data.npmRun, response.data.npmDRun);
         }
-      } catch (e) {
-        this.downloadButton.wrapper.classList.add('download-button__disabled');
-        this.downloadButton.disabled = true;
-      } finally {
-        this.downloadButton.wrapper.classList.remove('download-button__disabled');
         this.downloadButton.disabled = false;
+        this.downloadButton.wrapper.classList.remove('download-button__disabled');
+      } catch (e) {
+        if (!this.downloadButton.disabled) {
+          const modal = new Modal('error', dictionary[dictionary.lang].emptyConfigTitle, dictionary[dictionary.lang].emptyConfigText, [
+            {
+              text: 'Ok',
+              succesButton: 'true',
+            },
+          ]);
+          modal.showModal();
+        }
+        this.downloadButton.disabled = true;
+        this.downloadButton.wrapper.classList.add('download-button__disabled');
       }
     });
   }
@@ -62,6 +70,8 @@ export default class Profile {
   }
 
   show() {
+    this.downloadButton.disabled = false;
+    this.downloadButton.wrapper.classList.remove('download-button__disabled');
     // setDownload(getData());
     this.profileName.textContent = userName();
     this.element.classList.remove('hide');

@@ -33,7 +33,7 @@ export default class Editor {
           // url: 'http://localhost:3000/api/config/generate',
           url: 'https://webpack-generator-be.herokuapp.com/api/config/generate',
           headers: {
-            Authorization: `Bearer ${token}`,
+            Authorization: `Bearer ${token()}`,
           },
           data,
         });
