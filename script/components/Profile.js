@@ -1,6 +1,7 @@
+import axios from 'axios';
 import dictionary from '../dictionary';
 import DownloadButton from './DownloadButton';
-import { logout, userName } from './Auth';
+import { logout, userName, token } from './Auth';
 
 export default class Profile {
   constructor() {
@@ -13,6 +14,17 @@ export default class Profile {
     this.latestCreatedText.after(this.downloadButton.wrapper);
     this.updateLang();
     this.handleUnauthorize();
+    this.downloadButton.wrapper.addEventListener('click', async () => {
+      const response = await axios({
+        method: 'get',
+        // url: 'http://localhost:3000/api/config/last',
+        url: 'https://webpack-generator-be.herokuapp.com/api/config/last',
+        headers: {
+          Authorization: `Bearer ${token()}`
+        }        
+      });
+      debugger;
+    });
   }
 
   updateLang() {

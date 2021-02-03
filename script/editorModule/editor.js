@@ -3,6 +3,7 @@ import ValueMatrix from './ValueMatrix';
 import dictionary from '../dictionary';
 import Modal from '../components/Modal';
 import memorySizeOf from '../util/getSizeOf';
+import { token } from '../components/Auth';
 import createDownloadZip from '../util/createDownloadZip';
 import DownloadForm from '../components/DownloadForm';
 
@@ -29,9 +30,12 @@ export default class Editor {
         this.showWaiter();
         response = await axios({
           method: 'post',
-          // url: 'http://localhost:3000/api/config/generate',
+          //url: 'http://localhost:3000/api/config/generate',
           url: 'https://webpack-generator-be.herokuapp.com/api/config/generate',
-          data,
+          headers: {
+            Authorization: `Bearer ${token}`
+          },
+          data
         });
         this.showDownload(response.data.npmRun, response.data.npmDRun, createDownloadZip.bind(
           this, response.data.webpackConfig, response.data.npmRun, response.data.npmDRun,
