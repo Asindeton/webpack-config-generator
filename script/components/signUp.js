@@ -32,28 +32,32 @@ export default class SignUp {
     this.hideMessage();
     event.preventDefault();
     const data = parseFormData(new FormData(this.form));
-    if (data.email && data.password && data.name) {
-      try {
-        this.showWaiter();
-        const response = await axios({
-          method: 'post',
-          // url: 'http://localhost:3000/api/auth/register',
-          url: 'https://webpack-generator-be.herokuapp.com/api/auth/register',
-          data,
-        });
-        login(response.data.token, response.data.userId, response.data.name);
-        this.hide();
-        document.querySelectorAll('.navbar__item')[3].querySelector('.navbar__link').textContent = userName();
-        document.querySelectorAll('.navbar__item')[3].dispatchEvent(new Event('click'));
-      } catch (e) {
-        let error = e.response.data.messageCode || e.response.data.message;
-        if (e.response.data.errors) error = e.response.data.errors[0].param;
-        this.showMessage(error);
-      } finally {
-        this.hideWaiter();
+    if (data.password === data.repeatedPassword) {
+      if (data.email && data.password && data.name) {
+        try {
+          this.showWaiter();
+          const response = await axios({
+            method: 'post',
+            // url: 'http://localhost:3000/api/auth/register',
+            url: 'https://webpack-generator-be.herokuapp.com/api/auth/register',
+            data,
+          });
+          login(response.data.token, response.data.userId, response.data.name);
+          this.hide();
+          document.querySelectorAll('.navbar__item')[3].querySelector('.navbar__link').textContent = userName();
+          document.querySelectorAll('.navbar__item')[3].dispatchEvent(new Event('click'));
+        } catch (e) {
+          let error = e.response.data.messageCode || e.response.data.message;
+          if (e.response.data.errors) error = e.response.data.errors[0].param;
+          this.showMessage(error);
+        } finally {
+          this.hideWaiter();
+        }
+      } else {
+        this.showMessage('fillData');
       }
     } else {
-      this.showMessage('fillData');
+      this.showMessage('repeatingPasswordIncorrect');
     }
   }
 
