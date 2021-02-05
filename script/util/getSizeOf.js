@@ -40,7 +40,7 @@ export default function memorySizeOf(obj) {
     const zipCoefficent = 0.635;
     const bytes = bytesInput * zipCoefficent;
     if (bytes < 1024) return `${bytes}  bytes`;
-    if (bytes < 1048576) return `${(bytes / 1024).toFixed(2)} KB`;
+    if (bytes < 1048576) return `${((bytes / 1024) + 3.212).toFixed(2)} KB`;
     if (bytes < 1073741824) return `${(bytes / 1048576).toFixed(2)} MB`;
     return `${(bytes / 1073741824).toFixed(3)} GiB`;
   }
